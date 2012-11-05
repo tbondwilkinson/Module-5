@@ -14,7 +14,7 @@ $page_title = $_GET['post_title'];
 
 $stmt->bind_param('s', $page_title);
 $stmt->execute();
-$stmt->mysqli_bind_result($page_id);
+$stmt->bind_result($page_id);
 
 if($stmt->fetch()) {
 	$stmt->close();
@@ -30,7 +30,7 @@ if($stmt->fetch()) {
 
 	$stmt->bind_param('s', $page_id);
 	$stmt->execute();
-	$stmt->mysqli_bind_result($cl_to);
+	$stmt->bind_result($cl_to);
 	while($stmt->fetch()) {
 		array_push($page_links, $cl_to);
 	}
