@@ -37,7 +37,7 @@ if($stmt->fetch()) {
 
 	echo json_encode($page_links);
 	
-	$stmt->close;
+	$stmt->close();
 }
 
 exit;
