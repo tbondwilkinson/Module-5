@@ -1,4 +1,4 @@
-<?php
+<?php //hello
 session_start();
 require "database.php";
 
