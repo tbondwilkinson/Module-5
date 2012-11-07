@@ -48,14 +48,13 @@
         }
 
         function loadCategory(event) {
-            var json = JSON.parse(event.target.responseText);
         }
 
         window.onload = function() {
             // Get the list of images that we will be landmarking from the server.
             var randomPageTitle = "Random Page";
             pageTitle = randomPageTitle;
-            $.get("getPagesLinks.php", { post_title: randomPageTitle }, loadPageLinks);
+            $.get("getPageLinks.php", { post_title: randomPageTitle }, loadPageLinks);
 
             $.get("getCategory.php", { post_title: randomPageTitle }, loadCategory);
 
