@@ -10,8 +10,8 @@
         var stage;
         var pageTitle;
 
-        function loadPageLinks(event) {
-            var json = JSON.parse(event.target.responseText);
+        function loadPageLinks(data) {
+            var json = JSON.parse(data);
 
             var shapeLayer = new Kinetic.Layer();
             var textLayer = new Kinetic.Layer();
