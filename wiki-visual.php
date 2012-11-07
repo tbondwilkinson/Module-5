@@ -32,12 +32,13 @@
 
             var label = new Kinetic.Text({
                 x: oval.getX() - oval.getRadius().x,
-                y: oval.getY() - oval.getRadius().y,
+                y: oval.getY() - oval.getRadius().y + 8,
                 text: pageTitle,
-                fontSize: 15,
+                fontSize: 16,
                 fontFamily: "Calibri",
                 textFill: "green",
-                align: "center"
+                width: oval.getWidth(),
+                align: 'center'
             });
 
             layer.add(label)
