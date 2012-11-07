@@ -32,7 +32,7 @@
 
             var label = new Kinetic.Text({
                 x: oval.getX() - oval.getRadius().x,
-                y: oval.getY() - oval.getRadius().y + 8,
+                y: oval.getY() - 8,
                 text: pageTitle,
                 fontSize: 16,
                 fontFamily: "Calibri",
