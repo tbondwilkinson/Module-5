@@ -64,7 +64,7 @@
 
         window.onload = function() {
             // Get the list of images that we will be landmarking from the server.
-            var randomPageTitle = "Adobe_Illustrator";
+            var randomPageTitle = "Nate_Germer";
             pageTitle = randomPageTitle;
             $.get("getPageLinks.php", { post_title: randomPageTitle }, loadPageLinks);
 
