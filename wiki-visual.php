@@ -13,8 +13,7 @@
         function loadPageLinks(data) {
             var json = JSON.parse(data);
 
-            var shapeLayer = new Kinetic.Layer();
-            var textLayer = new Kinetic.Layer();
+            var layer = new Kinetic.Layer();
 
             var oval = new Kinetic.Ellipse({
                 x: stage.getWidth() / 2,
@@ -29,22 +28,22 @@
             });
 
             // add the shape to the layer
-            shapeLayer.add(oval);
+            layer.add(oval);
 
             var label = new Kinetic.Text({
-                x: oval.getX() - oval.getRadius().x + 10,
-                y: oval.getY(),
+                x: oval.getX() - oval.getRadius().x,
+                y: oval.getY() - oval.getRadius().y,
                 text: pageTitle,
                 fontSize: 15,
                 fontFamily: "Calibri",
-                textFill: "green"
+                textFill: "green",
+                align: "center"
             });
 
-            textLayer.add(label)
+            layer.add(label)
 
             // add the layer to the stage
-            stage.add(shapeLayer);
-            stage.add(textLayer);
+            stage.add(layer);
         }
 
         function loadCategory(event) {
