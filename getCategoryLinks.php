@@ -33,7 +33,7 @@ if($stmt->fetch()) {
 	$stmt->bind_param('s', $cat_id);
 	$stmt->execute();
 	$stmt->bind_result($title_to, $type);
-	
+
 	while($stmt->fetch()) {
 		if($type=='subcat'){
 			array_push($results['cat'], $title_to);
@@ -42,7 +42,7 @@ if($stmt->fetch()) {
 		}
 	}
 
-	echo json_encode($page_links);
+	echo json_encode($results);
 
 	$stmt->close();
 }
