@@ -2,7 +2,7 @@
 session_start();
 require "database.php";
 
-$rnd=mt_rand() / mt_getrandmax();ß
+$rnd=mt_rand() / mt_getrandmax();
 
 $stmt = $mysqli->prepare("SELECT page_title FROM page WHERE page_namespace=0
 													AND page_is_redirect=0 AND page_random>$rnd LIMIT 1");
