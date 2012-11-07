@@ -35,13 +35,15 @@
             layer.add(oval);
 
             var fontSize = 16;
+            var fontHeight = 8;
             if(sanitize(pageTitle).length > 16) {
                 fontSize = 10;
+                fontHeight = 5;
             }
 
             var label = new Kinetic.Text({
                 x: oval.getX() - oval.getRadius().x,
-                y: oval.getY() - 8,
+                y: oval.getY() - fontHeight,
                 text: sanitize(pageTitle),
                 fontSize: fontSize,
                 fontFamily: "Calibri",
