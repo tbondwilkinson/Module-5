@@ -10,6 +10,10 @@
         var stage;
         var pageTitle;
 
+        function sanitize(string) {
+            return string.replace("_", " ");
+        }
+
         function loadPageLinks(data) {
             var json = JSON.parse(data);
 
@@ -20,7 +24,7 @@
                 y: stage.getHeight() / 2,
                 radius: {
                     x: 80,
-                    y: 40,
+                    y: 30,
                 },
                 fill: "yellow",
                 stroke: "black",
@@ -33,12 +37,13 @@
             var label = new Kinetic.Text({
                 x: oval.getX() - oval.getRadius().x,
                 y: oval.getY() - 8,
-                text: pageTitle,
+                text: sanitize(pageTitle),
                 fontSize: 16,
                 fontFamily: "Calibri",
                 textFill: "green",
                 width: oval.getWidth(),
-                align: 'center'
+                align: 'center',
+                padding: 0
             });
 
             layer.add(label)
@@ -52,7 +57,7 @@
 
         window.onload = function() {
             // Get the list of images that we will be landmarking from the server.
-            var randomPageTitle = "Art";
+            var randomPageTitle = "Adobe_Illustrator";
             pageTitle = randomPageTitle;
             $.get("getPageLinks.php", { post_title: randomPageTitle }, loadPageLinks);
 
