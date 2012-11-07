@@ -34,11 +34,16 @@
             // add the shape to the layer
             layer.add(oval);
 
+            var fontSize = 16;
+            if(sanitize(pageTitle).length > 16) {
+                fontSize = 10;
+            }
+
             var label = new Kinetic.Text({
                 x: oval.getX() - oval.getRadius().x,
                 y: oval.getY() - 8,
                 text: sanitize(pageTitle),
-                fontSize: 16,
+                fontSize: fontSize,
                 fontFamily: "Calibri",
                 textFill: "green",
                 width: oval.getWidth(),
