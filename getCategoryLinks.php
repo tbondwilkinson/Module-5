@@ -8,7 +8,7 @@ $results = array();
 $results['cat'] = array();
 $results['page'] = array();
 
-$stmt = $mysqli->prepare("SELECT page.page_id, cl_type FROM categorylinks LEFT JOIN
+$stmt = $mysqli->prepare("SELECT page.page_title, cl_type FROM categorylinks LEFT JOIN
                           page ON page.page_id=cl_from WHERE cl_to=?");
 
 if(!$stmt){
