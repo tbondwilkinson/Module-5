@@ -52,7 +52,7 @@
 
         window.onload = function() {
             // Get the list of images that we will be landmarking from the server.
-            var randomPageTitle = "Random Page";
+            var randomPageTitle = "Art";
             pageTitle = randomPageTitle;
             $.get("getPageLinks.php", { post_title: randomPageTitle }, loadPageLinks);
 
