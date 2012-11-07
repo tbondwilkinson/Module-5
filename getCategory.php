@@ -11,7 +11,6 @@ if(!$stmt){
 
 $page_title = $_GET['post_title'];
 
-
 $stmt->bind_param('s', $page_title);
 $stmt->execute();
 $stmt->bind_result($page_id);
