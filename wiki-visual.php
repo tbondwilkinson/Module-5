@@ -34,6 +34,7 @@
             // add the shape to the layer
             layer.add(oval);
 
+            pageTitle = "Nate Germer";
             var fontSize = 16;
             var fontHeight = 8;
             if(sanitize(pageTitle).length > 16) {
@@ -64,7 +65,7 @@
 
         window.onload = function() {
             // Get the list of images that we will be landmarking from the server.
-            var randomPageTitle = "Nate_Germer";
+            var randomPageTitle = "Adobe_Illustrator";
             pageTitle = randomPageTitle;
             $.get("getPageLinks.php", { post_title: randomPageTitle }, loadPageLinks);
 
