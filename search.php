@@ -17,12 +17,14 @@ $stmt->execute();
 $stmt->bind_result($title, $namespace);
 
 $result = array();
+$i=0;
 
 while($stmt->fetch()) {
-	echo $title.' '.$namespace.'\n';
+	$result[$i]['title']=$title;
+	$result[$i]['namespace']=$namespace;
 }
 
-echo json_encode($array);
+echo json_encode($result);
 
 $stmt->close();
 
