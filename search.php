@@ -22,6 +22,7 @@ $i=0;
 while($stmt->fetch()) {
 	$result[$i]['title']=$title;
 	$result[$i]['namespace']=$namespace;
+	$i++;
 }
 
 echo json_encode($result);
