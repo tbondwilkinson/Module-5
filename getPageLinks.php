@@ -22,7 +22,7 @@ if($stmt->fetch()) {
 
 	$page_links = array();
 
-	$stmt = $mysqli->prepare("SELECT pl_title FROM pagelinks INNER JOIN page ON page.page_title = pagelinks.pl_title WHERE pl_from=? AND pl_namespace=?");
+	$stmt = $mysqli->prepare("SELECT pl_title FROM pagelinks INNER JOIN page ON page.page_title = pagelinks.pl_title AND page.page_namespace=pagelinks.pl_namespace WHERE pl_from=? AND pl_namespace=?");
 
 	if(!$stmt){
 		printf("Query Prep Failed: %s\n", $mysqli->error);
