@@ -18,11 +18,7 @@ $stmt->bind_result($page_title);
 
 if($stmt->fetch()) {
 
-	$page_titles = array();
-	
-	array_push($page_titles, $page_title);
-
-	echo json_encode($page_title);
+	echo $page_title;
 
 }
 
