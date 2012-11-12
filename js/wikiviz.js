@@ -62,7 +62,7 @@ function loadPageLinks(data) {
 
     linksLayer = new Kinetic.Layer();
 
-    var startX = 2;
+    var startX = 0;
     var startY = 60;
 
     for (var i = 0; i < pageLinks.length; i++) {
@@ -93,8 +93,9 @@ function loadPageLinks(data) {
             link.setY(startY);
             startX = link.getWidth();
         }
-
-        startX += link.getWidth();
+        else {
+            startX += link.getWidth();
+        }
     }
 
     // // Angle in between each pageLink
