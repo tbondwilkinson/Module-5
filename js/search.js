@@ -14,7 +14,7 @@ searchmanager.searchcallback = function(data) {
 
   for(var i=0; i < results.length; i++) {
     var string = results[i].title+((results[i].namespace==0)?"":" (CATEGORY)");
-    $('#searchpop').append('<a href="#" id="searchlink'+i+'">'+results[i].title+'</a>');
+    $('#searchpop').append('<a href="#'+results[i].title+'" id="searchlink'+i+'">'+sanitize(results[i].title)+'</a>');
     $('#searchlink'+i).click(bindText(results[i].title));
   }
 }
