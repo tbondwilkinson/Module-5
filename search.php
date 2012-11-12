@@ -2,7 +2,7 @@
 session_start();
 require "database.php";
 
-$stmt = $mysqli->prepare("SELECT page_title, page_namespace FROM page WHERE (page_namespace=0 OR page_namespace=14) AND page_title LIKE ? COLLATE utf8_general_ci LIMIT 15");
+$stmt = $mysqli->prepare("SELECT page_title, page_namespace FROM page WHERE (page_namespace=0 OR page_namespace=14) AND LOWER(CAST(page_title AS CHAR)) LIKE LOWER(?) LIMIT 15");
 
 if(!$stmt){
 	printf("Query Prep Failed: %s\n", $mysqli->error);
