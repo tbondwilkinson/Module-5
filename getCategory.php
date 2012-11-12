@@ -18,7 +18,7 @@ $stmt->bind_result($page_id);
 if($stmt->fetch()) {
 	$stmt->close();
 
-	$page_links = array();
+	$categories = array();
 
 	$stmt = $mysqli->prepare("SELECT cl_to FROM categorylinks WHERE cl_from=?");
 
@@ -31,10 +31,10 @@ if($stmt->fetch()) {
 	$stmt->execute();
 	$stmt->bind_result($cl_to);
 	while($stmt->fetch()) {
-		array_push($page_links, $cl_to);
+		array_push($categories, $cl_to);
 	}
 
-	echo json_encode($page_links);
+	echo json_encode($categories);
 	
 	$stmt->close();
 }
