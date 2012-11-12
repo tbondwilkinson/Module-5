@@ -20,10 +20,10 @@ function loadPageLinks(data) {
 
     var fillColor;
     if (isCategory) {
-        fillColor = "#C4898B";
+        fillColor = "#89C499";
     }
     else {
-        fillColor = "#89C499";
+        fillColor =  "#C4898B";
     }
     var oval = new Kinetic.Ellipse({
         x: stage.getWidth() / 2,
