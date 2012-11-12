@@ -78,7 +78,7 @@
                 });
 
                 link.on("click", function(evt) {
-                    alert(pageLinks[i]);
+                    alert(link.getText());
                 });
 
                 linksLayer.add(link);
