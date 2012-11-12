@@ -58,7 +58,28 @@
             // add the layer to the stage
             stage.add(layer);
 
-            alert(pageLinks.length);
+            // Angle in between each pageLink
+            var angleConstant = 2 * Math.PI / pageLinks.length;
+            var angle = 0;
+
+            var linksLayer = new Kinetic.Layer();
+            for (var i = 0; i < pageLinks.length; i++) {
+                var link = new Kinetic.Text({
+                    x: oval.getX() + Math.cos(angle) * stage.getWidth() / 4,
+                    y: oval.getY() + Math.sin(angle) * stage.getHeight() / 4,
+                    stroke: "black",
+                    strokeWidth: "2",
+                    fill: "#ddd",
+                    text: pageLinks[i],
+                    align: "center",
+                    padding: 5
+                });
+
+                linksLayer.add(link);
+                angle += angleConstant;
+            }
+
+            stage.add(linksLayer);
         }
 
         function loadCategory(event) {
