@@ -96,7 +96,7 @@ background-color:#9D1116;
 }
 
 .searchpop {
-/*display: none;*/
+display: none;
 position: absolute;
 width: 300px;
 background-color: lightGrey;
