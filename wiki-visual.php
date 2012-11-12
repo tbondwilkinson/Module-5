@@ -88,7 +88,8 @@
 
         function bindText(text) {
             return function(event) {
-                $.get("getPageLinks.php" { post_title: text }, loadPageLinks);
+                stage.clear();
+                $.get("getPageLinks.php", { post_title: text }, loadPageLinks);
             };
         }
 
