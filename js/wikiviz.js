@@ -149,7 +149,6 @@ function setLastPlace(data) {
     var lastPage = JSON.parse(data);
     if (lastPage.random) {
         $.get("randomPage.php", {}, start);
-        return;
     }
     else if (lastPage.isCategory) {
         isCategory = true;
@@ -185,6 +184,7 @@ window.onload = function() {
     });
     $('#random').click(function() {
         stage.reset();
+        $.get("randomPage.php", {}, start);
     });
 
     $.get("getLastPageOrCategory", {}, setLastPlace);
