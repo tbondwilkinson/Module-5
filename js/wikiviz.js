@@ -146,7 +146,7 @@ function start(data) {
 }
 
 function setLastPlace(data) {
-    var lastPage = JSON.parseJSON(data);
+    var lastPage = JSON.parse(data);
     if (lastPage.random) {
         $.get("randomPage.php", {}, start);
         return;
