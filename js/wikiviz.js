@@ -151,11 +151,11 @@ function setLastPlace(data) {
         $.get("randomPage.php", {}, start);
         return;
     }
-    else if (typeof lastPage.category !== undefined) {
+    else if (lastPage.isCategory) {
         pageTitle = lastPage.category;
         $.get("getCategoryPages.php", { category: lastPage.category}, loadPageLinks);
     }
-    else if (typeof lastPage.page !== undefined) {
+    else {
         pageTitle = lastPage.page;
         $.get("getPageLinks.php", { post_title: lastPage.page}, loadPageLinks);
     }
