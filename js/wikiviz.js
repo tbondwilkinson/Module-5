@@ -35,7 +35,7 @@ function loadPageLinks(data) {
 
     var label = new Kinetic.Text({
         x: stage.getWidth() / 2,
-        y: 0,
+        y: 20,
         text: sanitize(pageTitle),
         fontSize: 14,
         fontFamily: "Calibri",
