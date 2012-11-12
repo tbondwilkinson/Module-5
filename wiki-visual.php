@@ -63,10 +63,11 @@
             var angle = 0;
 
             var linksLayer = new Kinetic.Layer();
+            var radius = stage.getWidth() / 8;
             for (var i = 0; i < pageLinks.length; i++) {
                 var link = new Kinetic.Text({
-                    x: oval.getX() + Math.cos(angle) * stage.getWidth() / 4 - pageLinks[i].length * 5,
-                    y: oval.getY() + Math.sin(angle) * stage.getHeight() / 4 - 10,
+                    x: oval.getX() + Math.cos(angle) * radius - pageLinks[i].length * 5,
+                    y: oval.getY() + Math.sin(angle) * radius - 10,
                     stroke: "black",
                     fontFamily: "Monospace",
                     strokeWidth: "2",
@@ -81,6 +82,9 @@
 
                 linksLayer.add(link);
                 angle += angleConstant;
+                if (i % 50 == 0 && i != 0) {
+                    radius + stage.getWidth() / 8;
+                }
             }
 
             stage.add(linksLayer);
@@ -107,8 +111,8 @@
 
             stage = new Kinetic.Stage({
                 container: "wiki-container",
-                width: 600,
-                height: 600
+                width: 960,
+                height: 960
             });
         };
     </script>
