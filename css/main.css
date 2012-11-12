@@ -105,7 +105,19 @@ right: 10px;
 }
 
 div.searchpop a {
+background-color: #CCCCCC;
+padding: 2px 7px 3px 7px;
+text-decoration: none;
+color: black;
+font-family: 'Dosis', sans-serif;
+font-size: 18px;
+font-weight: 400;
+width: 286px;
+float: left;
+}
 
+div.searchpop a:hover {
+	background-color: #C4151C;
 }
 
 /* calendar entities */
