@@ -33,7 +33,20 @@ if($stmt->fetch()) {
 	$stmt->execute();
 	$stmt->bind_result($pl_title);
 	while($stmt->fetch()) {
-		array_push($page_links, $pl_title);
+		$stmt1 = $mysqli->prepare("SELECT page_id FROM page where page_title=? and page_namespace=?");
+
+		if(!$stmt1){
+			printf("Query Prep Failed: %s\n", $mysqli->error);
+			exit;
+		}
+
+		$stmt1->bind_param('sd', $pl_title, $zero);
+		$stmt1->execute();
+		$stmt1->bind_result($page_id1);
+
+		if($stmt11->fetch()) {
+			array_push($page_links, $pl_title);
+		}
 	}
 
 	echo json_encode($page_links);
