@@ -95,13 +95,17 @@ div.menubar a:hover {
 background-color:#9D1116;
 }
 
-.loginpop {
-display: none;
+.searchpop {
+/*display: none;*/
 position: absolute;
 width: 300px;
 background-color: lightGrey;
 top: 27px;
 right: 10px;
+}
+
+div.searchpop a {
+
 }
 
 /* calendar entities */
