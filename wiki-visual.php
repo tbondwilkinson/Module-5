@@ -65,12 +65,14 @@
             var linksLayer = new Kinetic.Layer();
             for (var i = 0; i < pageLinks.length; i++) {
                 var link = new Kinetic.Text({
-                    x: oval.getX() + Math.cos(angle) * stage.getWidth() / 4,
-                    y: oval.getY() + Math.sin(angle) * stage.getHeight() / 4,
+                    x: oval.getX() + Math.cos(angle) * stage.getWidth() / 4 - pageLinks[i].length * 5,
+                    y: oval.getY() + Math.sin(angle) * stage.getHeight() / 4 - 10,
                     stroke: "black",
+                    fontFamily: "Monospace",
                     strokeWidth: "2",
                     fill: "#ddd",
                     text: pageLinks[i],
+                    textFill: "black",
                     align: "center",
                     padding: 5
                 });
