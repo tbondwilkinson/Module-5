@@ -23,7 +23,7 @@ function loadPageLinks(data) {
             x: 80,
             y: 30
         },
-        fill: "#C4151C",
+        fill: "#C4898B",
         stroke: "black",
         strokeWidth: 1
     });
