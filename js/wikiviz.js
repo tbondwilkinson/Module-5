@@ -147,6 +147,9 @@ function start(data) {
 
 function setLastPlace(data) {
     var lastPage = JSON.parse(data);
+    
+    alert(lastPage.category);
+    alert(lastPage.page);
     if (lastPage.random) {
         $.get("randomPage.php", {}, start);
         return;
