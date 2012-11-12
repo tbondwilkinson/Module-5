@@ -77,7 +77,7 @@
                     padding: 5
                 });
 
-                link.on("click", bindText(pageLinks[i]);
+                link.on("click", bindText(pageLinks[i]));
 
                 linksLayer.add(link);
                 angle += angleConstant;
