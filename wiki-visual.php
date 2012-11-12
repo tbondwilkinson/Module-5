@@ -68,7 +68,9 @@
                 angleConstant = 2 * Math.PI / circleMax;
             }
             var remaining = pageLinks.length;
+            var total = 0;
             remaining -= circleMax;
+            total += circleMax;
             var angle = 0;
 
             var linksLayer = new Kinetic.Layer();
@@ -91,7 +93,7 @@
 
                 linksLayer.add(link);
                 angle += angleConstant;
-                if (i == pageLinks.length - remaining) {
+                if (i == total) {
                     angle = 0;
                     circleMax *= (radius + stage.getWidth() / 8) / radius;
                     if (remaining < circleMax) {
@@ -102,6 +104,7 @@
                     }
                     radius += stage.getWidth() / 8;
                     remaining -= circleMax;
+                    total += circleMax;
                 }
             }
 
