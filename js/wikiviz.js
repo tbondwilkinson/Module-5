@@ -88,6 +88,8 @@ function loadPageLinks(data) {
 
         linksLayer.add(link);
         if (maxShift + link.getWidth() > maxShift) {
+            alert("maxShift: " + maxShift);
+            alert(link.getWidth());
             maxShift = maxShift + link.getWidth();
         }
 
@@ -95,7 +97,6 @@ function loadPageLinks(data) {
 
         // If we have no room to fit the remaining label
         if(startY + link.getHeight() > stage.getHeight()) {
-            alert("maxShift: " + maxShift);
             startY = 40;
             startX = maxShift;
         }
