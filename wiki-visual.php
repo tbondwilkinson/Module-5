@@ -101,7 +101,7 @@
                         angleConstants = 2 * Math.PI / circleMax;
                     }
                     radius += stage.getWidth() / 8;
-                    remaing -= circleMax;
+                    remaining -= circleMax;
                 }
             }
 
