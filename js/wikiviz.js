@@ -23,7 +23,7 @@ function loadPageLinks(data) {
             x: 80,
             y: 30
         },
-        fill: "black",
+        fill: "#C4151C",
         stroke: "black",
         strokeWidth: 1
     });
@@ -44,7 +44,7 @@ function loadPageLinks(data) {
         text: sanitize(pageTitle),
         fontSize: fontSize,
         fontFamily: "Calibri",
-        textFill: "red",
+        textFill: "black",
         width: oval.getWidth(),
         align: 'center',
         padding: 0
