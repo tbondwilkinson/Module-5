@@ -157,11 +157,12 @@ function setLastPlace(data) {
     }
     else if (lastPage.category !== null) {
         pageTitle = lastPage.category;
+        $.get("getCategoryPages.php", { category: lastPage.category}, loadPageLinks);
     }
     else if (lastPage.page !== null) {
         pageTitle = lastPage.page;
+        $.get("getPageLinks.php", { post_title: lastPage.page}, loadPageLinks);
     }
-    $.get("getPageLinks.php", { post_title: pageTitle}, loadPageLinks);
 }
 
 window.onload = function() {
