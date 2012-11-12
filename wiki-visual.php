@@ -77,6 +77,10 @@
                     padding: 5
                 });
 
+                link.on("click", function(evt) {
+                    alert(pageLinks[i]);
+                });
+
                 linksLayer.add(link);
                 angle += angleConstant;
             }
