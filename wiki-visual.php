@@ -13,6 +13,7 @@
         function sanitize(string) {
             var temp = string;
             var index = temp.indexOf("_");
+            alert(index);
             while (index != -1) {
                 temp = temp.replace("_", " ");
                 index = temp.indexOf("_");
