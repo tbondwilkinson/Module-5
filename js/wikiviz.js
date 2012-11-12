@@ -93,6 +93,8 @@ function loadPageLinks(data) {
             link.setY(startY);
             startX = link.getWidth();
         }
+
+        startX += link.getWidth();
     }
 
     // // Angle in between each pageLink
