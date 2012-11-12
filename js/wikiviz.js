@@ -1,6 +1,7 @@
 var stage;
 var pageTitle;
 var isCategory;
+var isCategoryView;
 
 function sanitize(string) {
     var temp = string;
@@ -117,25 +118,18 @@ function loadPageLinks(data) {
     stage.add(layer);
 }
 
-function loadCategoryLinks(data) {
-    
-}
-
 function bindText(text) {
     return function(event) {
         stage.clear();
         pageTitle = text;
-        isCategory = false;
-        $.get("getPageLinks.php", { post_title: text }, loadPageLinks);
-    };
-}
-
-function bindCategory(text) {
-    return function(event) {
-        stage.clear();
-        pageTitle = text;
-        isCategory = true;
-        $.get("getCategoryLinks.php", { category: text}, loadPageLinks);
+        if (isCategoryView) {
+            isCategory = true;
+            $.get("getCategoryLinks.php", { category: text}, loadPageLinks);
+        }
+        else {
+            isCategory = false;
+            $.get("getPageLinks.php", { post_title: text }, loadPageLinks);
+        }
     };
 }
 
@@ -149,6 +143,7 @@ window.onload = function() {
 
     $('#pages').click(function() {
         stage.clear();
+        isCategoryView = false;
         if (isCategory) {
             $.get("getCategoryPages.php", { category: pageTitle }, loadPageLinks);
         } else {
@@ -157,12 +152,15 @@ window.onload = function() {
     });
     $('#categories').click(function () {
         stage.clear();
+        isCategoryView = true;
         if (isCategory) {
             $.get("getCategoryLinks.php", { category: pageTitle }, loadPageLinks);
         } else {
             $.get("getCategory.php", { post_title: pageTitle }, loadPageLinks);
         }
     });
+
+    isCategoryView = false;
 
     $.get("randomPage.php", {}, start);
     stage = new Kinetic.Stage({
