@@ -21,7 +21,7 @@ if($stmt->fetch()) {
 
 	$page_links = array();
 
-	$stmt = $mysqli->prepare("SELECT pl_title FROM pagelinks WHERE pl_from=? page_namespace=0");
+	$stmt = $mysqli->prepare("SELECT pl_title FROM pagelinks WHERE pl_from=? and page_namespace=0");
 
 	if(!$stmt){
 		printf("Query Prep Failed: %s\n", $mysqli->error);
