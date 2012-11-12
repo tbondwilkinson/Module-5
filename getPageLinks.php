@@ -2,7 +2,7 @@
 session_start();
 require "database.php";
 
-$stmt = $mysqli->prepare("SELECT page_id FROM page WHERE page_title=? and page_namespace=0");
+$stmt = $mysqli->prepare("SELECT page_id FROM page WHERE page_title=? AND page_namespace=0");
 
 if(!$stmt){
 	printf("Query Prep Failed: %s\n", $mysqli->error);
@@ -21,7 +21,7 @@ if($stmt->fetch()) {
 
 	$page_links = array();
 
-	$stmt = $mysqli->prepare("SELECT pl_title FROM pagelinks WHERE pl_from=? and page_namespace=0");
+	$stmt = $mysqli->prepare("SELECT pl_title FROM pagelinks WHERE pl_from=? AND page_namespace=0");
 
 	if(!$stmt){
 		printf("Query Prep Failed: %s\n", $mysqli->error);
