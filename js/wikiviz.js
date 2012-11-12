@@ -152,6 +152,7 @@ function setLastPlace(data) {
         return;
     }
     else if (lastPage.isCategory) {
+        isCategory = true;
         pageTitle = lastPage.category;
         $.get("getCategoryPages.php", { category: lastPage.category}, loadPageLinks);
     }
