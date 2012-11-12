@@ -93,7 +93,7 @@
                     x: oval.getX() + Math.cos(angle) * radius - (text.length * 5),
                     y: oval.getY() + Math.sin(angle) * radius - 10,
                     stroke: "black",
-                    fontFamily: "Monospace",
+                    fontFamily: "monospace",
                     strokeWidth: "2",
                     fill: "#ddd",
                     text: text,
