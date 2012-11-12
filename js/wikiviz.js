@@ -60,6 +60,8 @@ function loadPageLinks(data) {
 
     // add the layer to the stage
 
+    linksLayer = new Kinetic.Layer();
+
     maxShift = 0;
     startX = 2;
     startY = 40;
