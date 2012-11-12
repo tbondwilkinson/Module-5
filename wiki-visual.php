@@ -85,8 +85,11 @@
             var radius = stage.getWidth() / 8;
             for (var i = 0; i < pageLinks.length; i++) {
                 var text = sanitize(pageLinks[i]).substring(0, 15);
+                if (pageLinks[i].length > 15) {
+                    text += "[...]";
+                }
                 var link = new Kinetic.Text({
-                    x: oval.getX() + Math.cos(angle) * radius - pageLinks[i].length * 5,
+                    x: oval.getX() + Math.cos(angle) * radius - text.length * 5,
                     y: oval.getY() + Math.sin(angle) * radius - 10,
                     stroke: "black",
                     fontFamily: "Monospace",
