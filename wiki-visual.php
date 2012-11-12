@@ -126,15 +126,16 @@
             stage.add(linksLayer);
         }
 
+        function loadCategory(event) {
+            
+        }
+
         function bindText(text) {
             return function(event) {
                 stage.clear();
                 pageTitle = text;
                 $.get("getPageLinks.php", { post_title: text }, loadPageLinks);
             };
-        }
-
-        function loadCategory(event) {
         }
 
         window.onload = function() {
