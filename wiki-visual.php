@@ -63,7 +63,7 @@
                 var angleConstant = 2 * Math.PI / pageLinks.length;
             }
             else {
-                var angleConstants = 2 * Math.PI / 50;
+                var angleConstant = 2 * Math.PI / 50;
             }
             var angle = 0;
 
