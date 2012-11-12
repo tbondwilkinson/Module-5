@@ -34,8 +34,8 @@ function loadPageLinks(data) {
     }
 
     var label = new Kinetic.Text({
-        x: oval.getX() - oval.getRadius().x,
-        y: oval.getY() - fontHeight,
+        x: stage.getWidth() / 2-pageTitle.length*4.5,
+        y: stage.getHeight() / 2-10,
         text: sanitize(pageTitle),
         fontSize: 14,
         fontFamily: "Calibri",
@@ -43,7 +43,7 @@ function loadPageLinks(data) {
         fill: fillColor,
         textFill: "black",
         align: 'center',
-        padding: 0
+        padding: 5
     });
 
     label.on("click", function() {
