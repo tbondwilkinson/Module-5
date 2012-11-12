@@ -130,6 +130,7 @@ function bindText(text) {
 }
 
 function start(data) {
+    pageTitle = data;
     $.get("getPageLinks.php", { post_title: data }, loadPageLinks);
     $.get("getCategory.php", { post_title: data }, loadCategory);
 }
