@@ -1,7 +1,17 @@
 var searchmanager = {};
 
+searchmanager.addunderscores = function(string) {
+    var temp = string;
+    var index = temp.indexOf("_");
+    while (index != -1) {
+        temp = temp.replace("_", " ");
+        index = temp.indexOf("_");
+    }
+    return temp;
+}
+
 searchmanager.execsearch = function() {
-  var querystr = $('#search').val();
+  var querystr = searchmanager.addunderscores($('#search').val());
 
   //let's goooooo
   $.get("search.php", { query: querystr }, searchmanager.searchcallback);
