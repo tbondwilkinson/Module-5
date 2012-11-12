@@ -62,10 +62,8 @@ function loadPageLinks(data) {
 
     linksLayer = new Kinetic.Layer();
 
-    maxShift = 0;
-    nextMaxShift = 0;
-    startX = 2;
-    startY = 40;
+    var startX = 2;
+    var startY = 60;
 
     for (var i = 0; i < pageLinks.length; i++) {
         var text = sanitize(pageLinks[i]);
@@ -88,17 +86,13 @@ function loadPageLinks(data) {
         link.on("click", bindText(pageLinks[i]));
 
         linksLayer.add(link);
-        if (maxShift + link.getWidth() > nextMaxShift) {
-            nextMaxShift = maxShift + link.getWidth();
-        }
 
-        startY += link.getHeight();
+        startX += link.getWidth();
 
         // If we have no room to fit the remaining label
-        if(startY + link.getHeight() > stage.getHeight()) {
-            maxShift = nextMaxShift;
-            startY = 40;
-            startX = nextMaxShift;
+        if(startX > stage.getWidth()) {
+            startX = 0;
+            startY += link.getHeight();
         }
     }
 
