@@ -1,5 +1,6 @@
 var stage;
 var pageTitle;
+var isCategory;
 
 function sanitize(string) {
     var temp = string;
@@ -116,7 +117,7 @@ function loadPageLinks(data) {
     stage.add(layer);
 }
 
-function loadCategory(data) {
+function loadCategoryLinks(data) {
     
 }
 
@@ -124,18 +125,44 @@ function bindText(text) {
     return function(event) {
         stage.clear();
         pageTitle = text;
+        isCategory = false;
         $.get("getPageLinks.php", { post_title: text }, loadPageLinks);
+    };
+}
+
+function bindCategory(text) {
+    return function(event) {
+        stage.clear();
+        pageTitle = text;
+        isCategory = true;
+        $.get("getCategoryLinks.php", { category: text}, loadPageLinks);
     };
 }
 
 function start(data) {
     pageTitle = data;
     $.get("getPageLinks.php", { post_title: data }, loadPageLinks);
-    $.get("getCategory.php", { post_title: data }, loadCategory);
 }
 
 window.onload = function() {
     // Get the list of images that we will be landmarking from the server.
+
+    $('#pages').click(function() {
+        stage.clear();
+        if (isCategory) {
+            $.get("getCategoryPages.php", { category: pageTitle }, loadPageLinks);
+        } else {
+            $.get("getPageLinks.php", { post_title: pageTitle }, loadPageLinks);
+        }
+    });
+    $('#categories').click(function () {
+        stage.clear();
+        if (isCategory) {
+            $.get("getCategoryLinks.php", { category: pageTitle }, loadPageLinks);
+        } else {
+            $.get("getCategory.php", { post_title: pageTitle }, loadPageLinks);
+        }
+    });
 
     $.get("randomPage.php", {}, start);
     stage = new Kinetic.Stage({
