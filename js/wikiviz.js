@@ -21,7 +21,7 @@ function loadPageLinks(data) {
         y: stage.getHeight() / 2,
         radius: {
             x: 80,
-            y: 30,
+            y: 30
         },
         fill: "yellow",
         stroke: "black",
@@ -50,7 +50,7 @@ function loadPageLinks(data) {
         padding: 0
     });
 
-    layer.add(label)
+    layer.add(label);
 
     // add the layer to the stage
     stage.add(layer);
@@ -117,7 +117,7 @@ function loadPageLinks(data) {
     stage.add(linksLayer);
 }
 
-function loadCategory(event) {
+function loadCategory(data) {
     
 }
 
@@ -129,14 +129,15 @@ function bindText(text) {
     };
 }
 
+function start(data) {
+    $.get("getPageLinks.php", { post_title: data }, loadPageLinks);
+    $.get("getCategory.php", { post_title: data }, loadCategory);
+}
+
 window.onload = function() {
     // Get the list of images that we will be landmarking from the server.
-    var randomPageTitle = "Adobe_Illustrator";
-    pageTitle = randomPageTitle;
-    $.get("getPageLinks.php", { post_title: randomPageTitle }, loadPageLinks);
 
-    $.get("getCategory.php", { post_title: randomPageTitle }, loadCategory);
-
+    $.get("randomPage.php", {}, start);
     stage = new Kinetic.Stage({
         container: "wiki-container",
         width: 960,
