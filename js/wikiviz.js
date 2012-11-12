@@ -86,7 +86,6 @@ function loadPageLinks(data) {
             fontFamily: "monospace",
             strokeWidth: "2",
             fill: "#ddd",
-            draggable: true,
             text: text,
             textFill: "black",
             align: "center",
