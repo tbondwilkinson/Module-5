@@ -47,7 +47,7 @@ function loadPageLinks(data) {
     });
 
     label.on("click", function() {
-        window.open("simple.wikipedia.org/wiki/" + pageTitle);
+        window.open("http://simple.wikipedia.org/wiki/" + pageTitle);
     });
 
     layer.add(label);
