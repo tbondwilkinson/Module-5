@@ -25,20 +25,6 @@ function loadPageLinks(data) {
     else {
         fillColor =  "#C4898B";
     }
-    var oval = new Kinetic.Ellipse({
-        x: stage.getWidth() / 2,
-        y: stage.getHeight() / 2,
-        radius: {
-            x: 80,
-            y: 30
-        },
-        fill: fillColor,
-        stroke: "black",
-        strokeWidth: 1
-    });
-
-    // add the shape to the layer
-    layer.add(oval);
 
     var fontSize = 16;
     var fontHeight = 8;
@@ -51,12 +37,17 @@ function loadPageLinks(data) {
         x: oval.getX() - oval.getRadius().x,
         y: oval.getY() - fontHeight,
         text: sanitize(pageTitle),
-        fontSize: fontSize,
+        fontSize: 14,
         fontFamily: "Calibri",
+        strokeWidth: 2,
+        fill: fillColor,
         textFill: "black",
-        width: oval.getWidth(),
         align: 'center',
         padding: 0
+    });
+
+    label.on("click", function() {
+        window.open("simple.wikipedia.org/wiki/" + pageTitle);
     });
 
     layer.add(label);
