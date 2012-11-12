@@ -59,7 +59,12 @@
             stage.add(layer);
 
             // Angle in between each pageLink
-            var angleConstant = 2 * Math.PI / pageLinks.length;
+            if (pageLinks.length < 50) {
+                var angleConstant = 2 * Math.PI / pageLinks.length;
+            }
+            else {
+                var angleConstants = 2 * Math.PI / 50;
+            }
             var angle = 0;
 
             var linksLayer = new Kinetic.Layer();
@@ -83,6 +88,7 @@
                 linksLayer.add(link);
                 angle += angleConstant;
                 if (i % 50 == 0 && i != 0) {
+                    angle = 0;
                     radius += stage.getWidth() / 8;
                 }
             }
