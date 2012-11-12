@@ -127,7 +127,11 @@ function loadPageLinks(data) {
 
 function bindText(text) {
     return function(event) {
-        stage.clear();
+        stage = new Kinetic.Stage({
+        container: "wiki-container",
+        width: 960,
+        height: 960
+        });
         pageTitle = text;
         if (isCategoryView) {
             isCategory = true;
@@ -164,7 +168,11 @@ window.onload = function() {
     // Get the list of images that we will be landmarking from the server.
 
     $('#pages').click(function() {
-        stage.clear();
+        stage = new Kinetic.Stage({
+            container: "wiki-container",
+            width: 960,
+            height: 960
+        });
         isCategoryView = false;
         if (isCategory) {
             $.get("getCategoryPages.php", { category: pageTitle }, loadPageLinks);
@@ -173,7 +181,11 @@ window.onload = function() {
         }
     });
     $('#categories').click(function() {
-        stage.clear();
+        stage = new Kinetic.Stage({
+            container: "wiki-container",
+            width: 960,
+            height: 960
+        });
         isCategoryView = true;
         if (isCategory) {
             $.get("getCategorySubCategories.php", { category: pageTitle }, loadPageLinks);
@@ -182,7 +194,11 @@ window.onload = function() {
         }
     });
     $('#random').click(function() {
-        stage.clear();
+        stage = new Kinetic.Stage({
+            container: "wiki-container",
+            width: 960,
+            height: 960
+        });
         isCategoryView = false;
         isCategory = false;
         $.get("randomPage.php", {}, start);
