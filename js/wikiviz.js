@@ -184,6 +184,8 @@ window.onload = function() {
     });
     $('#random').click(function() {
         stage.reset();
+        isCategory = false;
+        isCategoryView = false;
         $.get("randomPage.php", {}, start);
     });
 
