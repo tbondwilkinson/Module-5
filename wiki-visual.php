@@ -83,7 +83,7 @@
                 linksLayer.add(link);
                 angle += angleConstant;
                 if (i % 50 == 0 && i != 0) {
-                    radius + stage.getWidth() / 8;
+                    radius += stage.getWidth() / 8;
                 }
             }
 
