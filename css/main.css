@@ -47,6 +47,7 @@ font-family: 'Dosis', sans-serif;
 font-size: 14px;
 font-weight: 400;
 height:960px;
+z-index:2;
 }
 
 div.content p {
@@ -102,6 +103,7 @@ width: 300px;
 background-color: lightGrey;
 top: 27px;
 right: 10px;
+z-index: 3;
 }
 
 div.searchpop a {
