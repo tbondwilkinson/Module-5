@@ -87,7 +87,7 @@ function loadPageLinks(data) {
 
         linksLayer.add(link);
 
-        if (startX + link.getWidth() > stage.getWidth) {
+        if (startX + link.getWidth() > stage.getWidth()) {
             startY += link.getHeight();
             link.setX(0);
             link.setY(startY);
