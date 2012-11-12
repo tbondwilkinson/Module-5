@@ -97,7 +97,7 @@
                     angle = 0;
                     circleMax *= (radius + stage.getWidth() / 8) / radius;
                     if (remaining < circleMax) {
-                        angleConstant = 2 * Math.PI / remaining;
+                        angleConstants = 2 * Math.PI / remaining;
                     }
                     else {
                         angleConstants = 2 * Math.PI / circleMax;
@@ -105,6 +105,11 @@
                     radius += stage.getWidth() / 8;
                     remaining -= circleMax;
                     total += circleMax;
+                    alert("Circle Max: " + circleMax);
+                    alert("Radius: " + radius);
+                    alert("Angle Constants:" + angleConstants);
+                    alert("Remaining: " + remaining);
+                    alert("Total: " + total);
                 }
             }
 
