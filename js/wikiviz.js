@@ -147,18 +147,15 @@ function start(data) {
 
 function setLastPlace(data) {
     var lastPage = JSON.parse(data);
-    
-    alert(lastPage.category);
-    alert(lastPage.page);
     if (lastPage.random) {
         $.get("randomPage.php", {}, start);
         return;
     }
-    else if (lastPage.category !== null) {
+    else if (typeof lastPage.category !== undefined) {
         pageTitle = lastPage.category;
         $.get("getCategoryPages.php", { category: lastPage.category}, loadPageLinks);
     }
-    else if (lastPage.page !== null) {
+    else if (typeof lastPage.page !== undefined) {
         pageTitle = lastPage.page;
         $.get("getPageLinks.php", { post_title: lastPage.page}, loadPageLinks);
     }
