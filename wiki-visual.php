@@ -12,11 +12,11 @@
 
         function ReplaceAll(string,stringToFind,stringToReplace){
             var index = string.indexOf(stringToFind);
-                while(index != -1){
-                    temp = string.replace(stringToFind,stringToReplace);
-                    index = string.indexOf(stringToFind);
-                }
-                return string;
+            while(index != -1){
+                string = string.replace(stringToFind,stringToReplace);
+                index = string.indexOf(stringToFind);
+            }
+            return string;
         }
 
         function sanitize(string) {
