@@ -2,10 +2,10 @@ var searchmanager = {};
 
 searchmanager.addunderscores = function(string) {
     var temp = string;
-    var index = temp.indexOf("_");
+    var index = temp.indexOf(" ");
     while (index != -1) {
-        temp = temp.replace("_", " ");
-        index = temp.indexOf("_");
+        temp = temp.replace(" ", "_");
+        index = temp.indexOf(" ");
     }
     return temp;
 }
