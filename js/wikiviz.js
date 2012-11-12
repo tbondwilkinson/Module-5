@@ -60,33 +60,18 @@ function loadPageLinks(data) {
 
     // add the layer to the stage
 
-    // Angle in between each pageLink
-    var circleMax = 25;
-    var angleConstant;
-    var remaining = pageLinks.length;
-    var total = 0;
-    if (pageLinks.length <= circleMax) {
-        angleConstant = 2 * Math.PI / pageLinks.length;
-        remaining = 0;
-        total += pageLinks.length;
-    }
-    else {
-        remaining -= circleMax;
-        total += circleMax;
-        angleConstant = 2 * Math.PI / circleMax;
-    }
-    var angle = 0;
+    maxShift = 0;
+    startX = 2;
+    startY = 40;
 
-    var linksLayer = new Kinetic.Layer();
-    var radius = stage.getWidth() / 8;
     for (var i = 0; i < pageLinks.length; i++) {
         var text = sanitize(pageLinks[i]);
         if (pageLinks[i].length > 15) {
             text += "[...]";
         }
         var link = new Kinetic.Text({
-            x: label.getX() + Math.cos(angle) * radius - (text.length * 4),
-            y: label.getY() + Math.sin(angle) * radius - 10,
+            x: startX,
+            y: startY,
             stroke: "black",
             fontFamily: "monospace",
             strokeWidth: "2",
@@ -100,23 +85,76 @@ function loadPageLinks(data) {
         link.on("click", bindText(pageLinks[i]));
 
         linksLayer.add(link);
-        angle += angleConstant;
-        if (i == total - 1) {
-            angle = 0;
-            circleMax *= (radius + stage.getWidth() / 8) / radius;
-            if (remaining <= circleMax) {
-                angleConstant = 2 * Math.PI / remaining;
-                remaining = 0;
-                total = pageLinks.length;
-            }
-            else {
-                angleConstant = 2 * Math.PI / circleMax;
-                remaining -= circleMax;
-                total += circleMax;
-            }
-            radius += stage.getWidth() / 8;
+        if (maxShift + link.getWidth() > maxShift) {
+            maxShift = maxShift + link.getWidth();
+        }
+
+        startY += links.getHeight();
+
+        // If we have no room to fit the remaining label
+        if(startY + links.getHeight() > stage.getHeight()) {
+            startY = 40;
+            startX = maxShift;
         }
     }
+
+    // // Angle in between each pageLink
+    // var circleMax = 25;
+    // var angleConstant;
+    // var remaining = pageLinks.length;
+    // var total = 0;
+    // if (pageLinks.length <= circleMax) {
+    //     angleConstant = 2 * Math.PI / pageLinks.length;
+    //     remaining = 0;
+    //     total += pageLinks.length;
+    // }
+    // else {
+    //     remaining -= circleMax;
+    //     total += circleMax;
+    //     angleConstant = 2 * Math.PI / circleMax;
+    // }
+    // var angle = 0;
+
+    // var linksLayer = new Kinetic.Layer();
+    // var radius = stage.getWidth() / 8;
+    // for (var i = 0; i < pageLinks.length; i++) {
+    //     var text = sanitize(pageLinks[i]);
+    //     if (pageLinks[i].length > 15) {
+    //         text += "[...]";
+    //     }
+    //     var link = new Kinetic.Text({
+    //         x: label.getX() + Math.cos(angle) * radius - (text.length * 4),
+    //         y: label.getY() + Math.sin(angle) * radius - 10,
+    //         stroke: "black",
+    //         fontFamily: "monospace",
+    //         strokeWidth: "2",
+    //         fill: "#ddd",
+    //         text: text,
+    //         textFill: "black",
+    //         align: "center",
+    //         padding: 5
+    //     });
+
+    //     link.on("click", bindText(pageLinks[i]));
+
+    //     linksLayer.add(link);
+    //     angle += angleConstant;
+    //     if (i == total - 1) {
+    //         angle = 0;
+    //         circleMax *= (radius + stage.getWidth() / 8) / radius;
+    //         if (remaining <= circleMax) {
+    //             angleConstant = 2 * Math.PI / remaining;
+    //             remaining = 0;
+    //             total = pageLinks.length;
+    //         }
+    //         else {
+    //             angleConstant = 2 * Math.PI / circleMax;
+    //             remaining -= circleMax;
+    //             total += circleMax;
+    //         }
+    //         radius += stage.getWidth() / 8;
+    //     }
+    // }
 
     stage.add(linksLayer);
     stage.add(layer);
