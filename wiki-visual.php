@@ -15,7 +15,7 @@
         }
 
         function loadPageLinks(data) {
-            var json = JSON.parse(data);
+            var pageLinks = JSON.parse(data);
 
             var layer = new Kinetic.Layer();
 
@@ -34,7 +34,6 @@
             // add the shape to the layer
             layer.add(oval);
 
-            pageTitle = "Nate Germer";
             var fontSize = 16;
             var fontHeight = 8;
             if(sanitize(pageTitle).length > 16) {
@@ -58,6 +57,8 @@
 
             // add the layer to the stage
             stage.add(layer);
+
+            alert(pageLinks.length);
         }
 
         function loadCategory(event) {
