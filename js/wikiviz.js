@@ -87,12 +87,11 @@ function loadPageLinks(data) {
 
         linksLayer.add(link);
 
-        startX += link.getWidth();
-
-        // If we have no room to fit the remaining label
-        if(startX > stage.getWidth()) {
-            startX = 0;
+        if (startX + link.getWidth() > stage.getWidth) {
             startY += link.getHeight();
+            link.setX(0);
+            link.setY(startY);
+            startX = link.getWidth();
         }
     }
 
