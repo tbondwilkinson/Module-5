@@ -2,7 +2,7 @@
 session_start();
 require "database.php";
 
-$stmt = $mysqli->prepare("SELECT page_title, page_namespace FROM page WHERE page_title LIKE ? LIMIT 10");
+$stmt = $mysqli->prepare("SELECT page_title, page_namespace FROM page WHERE (page_namespace=0 OR page_namespace=14) AND page_title LIKE ? LIMIT 15");
 
 if(!$stmt){
 	printf("Query Prep Failed: %s\n", $mysqli->error);
