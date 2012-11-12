@@ -151,10 +151,10 @@ function setLastPlace(data) {
         $.get("randomPage.php", {}, start);
         return;
     }
-    else if (lastPage.has("category")) {
+    else if (lastPage.category !== null) {
         pageTitle = lastPage.category;
     }
-    else if (lastPage.has("page")) {
+    else if (lastPage.page !== null) {
         pageTitle = lastPage.page;
     }
     $.get("getPageLinks.php", { post_title: pageTitle}, loadPageLinks);
