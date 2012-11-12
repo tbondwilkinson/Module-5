@@ -90,7 +90,7 @@
                 //     alert(text.length);
                 // }
                 var link = new Kinetic.Text({
-                    x: oval.getX() + Math.cos(angle) * radius - (text.length * 5),
+                    x: oval.getX() + Math.cos(angle) * radius - (text.length * 4),
                     y: oval.getY() + Math.sin(angle) * radius - 10,
                     stroke: "black",
                     fontFamily: "monospace",
