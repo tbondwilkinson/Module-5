@@ -157,7 +157,7 @@ window.onload = function() {
             $.get("getPageLinks.php", { post_title: pageTitle }, loadPageLinks);
         }
     });
-    $('#categories').click(function () {
+    $('#categories').click(function() {
         stage.clear();
         isCategoryView = true;
         if (isCategory) {
@@ -165,6 +165,12 @@ window.onload = function() {
         } else {
             $.get("getCategory.php", { post_title: pageTitle }, loadPageLinks);
         }
+    });
+    $('#random').click(function() {
+        stage.clear();
+        isCategoryView = false;
+        isCategory = false;
+        $.get("randomPage.php", {}, start);
     });
 
     isCategoryView = false;
