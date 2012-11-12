@@ -87,6 +87,7 @@
                 var text = sanitize(pageLinks[i]).substring(0, 15);
                 if (pageLinks[i].length > 15) {
                     text += "[...]";
+                    alert(text.length);
                 }
                 var link = new Kinetic.Text({
                     x: oval.getX() + Math.cos(angle) * radius - text.length * 5,
