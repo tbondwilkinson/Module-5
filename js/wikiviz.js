@@ -34,8 +34,8 @@ function loadPageLinks(data) {
     }
 
     var label = new Kinetic.Text({
-        x: stage.getWidth() / 2-pageTitle.length*4.5,
-        y: stage.getHeight() / 2-10,
+        x: stage.getWidth() / 2,
+        y: 0,
         text: sanitize(pageTitle),
         fontSize: 14,
         fontFamily: "Calibri",
@@ -45,6 +45,8 @@ function loadPageLinks(data) {
         align: 'center',
         padding: 5
     });
+
+    label.setX(label.getX() - label.getWidth()/2);
 
     label.on("click", function() {
         var url = "http://simple.wikipedia.org/wiki/";
