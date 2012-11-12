@@ -77,15 +77,19 @@
                     padding: 5
                 });
 
-                link.on("click", function(evt) {
-                    alert(link.getText());
-                });
+                link.on("click", bindText(pageLinks[i]);
 
                 linksLayer.add(link);
                 angle += angleConstant;
             }
 
             stage.add(linksLayer);
+        }
+
+        function bindText(text) {
+            return function(event) {
+                alert(text);
+            };
         }
 
         function loadCategory(event) {
