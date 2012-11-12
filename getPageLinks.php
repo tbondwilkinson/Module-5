@@ -11,8 +11,9 @@ if(!$stmt){
 
 $page_title = $_GET['post_title'];
 
+$zero = 0;
 
-$stmt->bind_param('sd', $page_title, 0);
+$stmt->bind_param('sd', $page_title, $zero);
 $stmt->execute();
 $stmt->bind_result($page_id);
 
@@ -28,7 +29,7 @@ if($stmt->fetch()) {
 		exit;
 	}
 
-	$stmt->bind_param('sd', $page_id, 0);
+	$stmt->bind_param('sd', $page_id, $zero);
 	$stmt->execute();
 	$stmt->bind_result($pl_title);
 	while($stmt->fetch()) {
