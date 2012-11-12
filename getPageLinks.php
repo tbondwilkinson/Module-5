@@ -22,7 +22,7 @@ if($stmt->fetch()) {
 
 	$page_links = array();
 
-	$stmt = $mysqli->prepare("SELECT pl_title FROM pagelinks WHERE pl_from=? AND pl_namespace=?");
+	$stmt = $mysqli->prepare("SELECT pl_title FROM pagelinks INNER JOIN page ON page.page_title = pagelinks.pl_title WHERE pl_from=? AND pl_namespace=? JOIN");
 
 	if(!$stmt){
 		printf("Query Prep Failed: %s\n", $mysqli->error);
@@ -33,20 +33,7 @@ if($stmt->fetch()) {
 	$stmt->execute();
 	$stmt->bind_result($pl_title);
 	while($stmt->fetch()) {
-		$stmt1 = $mysqli->prepare("SELECT page_id FROM page where page_title=? and page_namespace=?");
-
-		if(!$stmt1){
-			printf("Query Prep Failed: %s\n", $mysqli->error);
-			exit;
-		}
-
-		$stmt1->bind_param('sd', $pl_title, $zero);
-		$stmt1->execute();
-		$stmt1->bind_result($page_id1);
-
-		if($stmt11->fetch()) {
-			array_push($page_links, $pl_title);
-		}
+		array_push($page_links, $pl_title);
 	}
 
 	echo json_encode($page_links);
