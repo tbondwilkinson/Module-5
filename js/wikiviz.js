@@ -47,7 +47,11 @@ function loadPageLinks(data) {
     });
 
     label.on("click", function() {
-        window.open("http://simple.wikipedia.org/wiki/" + pageTitle);
+        var url = "http://simple.wikipedia.org/wiki/";
+        if (isCategory) {
+            url += "Category:";
+        }
+        window.open(url + pageTitle);
     });
 
     layer.add(label);
