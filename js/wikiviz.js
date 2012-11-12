@@ -79,8 +79,8 @@ function loadPageLinks(data) {
             text += "[...]";
         }
         var link = new Kinetic.Text({
-            x: oval.getX() + Math.cos(angle) * radius - (text.length * 4),
-            y: oval.getY() + Math.sin(angle) * radius - 10,
+            x: label.getX() + Math.cos(angle) * radius - (text.length * 4),
+            y: label.getY() + Math.sin(angle) * radius - 10,
             stroke: "black",
             fontFamily: "monospace",
             strokeWidth: "2",
