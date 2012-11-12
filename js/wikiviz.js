@@ -91,10 +91,10 @@ function loadPageLinks(data) {
             maxShift = maxShift + link.getWidth();
         }
 
-        startY += links.getHeight();
+        startY += link.getHeight();
 
         // If we have no room to fit the remaining label
-        if(startY + links.getHeight() > stage.getHeight()) {
+        if(startY + link.getHeight() > stage.getHeight()) {
             startY = 40;
             startX = maxShift;
         }
