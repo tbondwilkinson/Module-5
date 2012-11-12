@@ -13,12 +13,11 @@
         function sanitize(string) {
             var temp = string;
             var index = temp.indexOf("_");
-            alert(index);
             while (index != -1) {
                 temp = temp.replace("_", " ");
                 index = temp.indexOf("_");
             }
-            return temp.substring(0, 15);
+            return temp;
         }
 
         function loadPageLinks(data) {
@@ -85,6 +84,7 @@
             var linksLayer = new Kinetic.Layer();
             var radius = stage.getWidth() / 8;
             for (var i = 0; i < pageLinks.length; i++) {
+                var text = sanitize(pageLinks[i]).substring(0, 15);
                 var link = new Kinetic.Text({
                     x: oval.getX() + Math.cos(angle) * radius - pageLinks[i].length * 5,
                     y: oval.getY() + Math.sin(angle) * radius - 10,
@@ -92,7 +92,7 @@
                     fontFamily: "Monospace",
                     strokeWidth: "2",
                     fill: "#ddd",
-                    text: pageLinks[i],
+                    text: text,
                     textFill: "black",
                     align: "center",
                     padding: 5
