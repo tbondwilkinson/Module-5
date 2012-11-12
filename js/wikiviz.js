@@ -124,7 +124,7 @@ function bindText(text) {
         pageTitle = text;
         if (isCategoryView) {
             isCategory = true;
-            $.get("getCategoryPages.php", { category: text}, loadPageLinks);
+            $.get("getCategorySubCategories.php", { category: text}, loadPageLinks);
         }
         else {
             isCategory = false;
@@ -154,7 +154,7 @@ window.onload = function() {
         stage.clear();
         isCategoryView = true;
         if (isCategory) {
-            $.get("getCategoryLinks.php", { category: pageTitle }, loadPageLinks);
+            $.get("getCategorySubCategories.php", { category: pageTitle }, loadPageLinks);
         } else {
             $.get("getCategory.php", { post_title: pageTitle }, loadPageLinks);
         }
