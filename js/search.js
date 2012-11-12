@@ -15,8 +15,8 @@ $().ready(function(){
   });
 
   //handle search
-  $('#search').focus(function(event){
-    alert('searchbox has'+$('search').val());
+  $('#search').keypress(function(event){
+    alert(event);
   });
 
 });
