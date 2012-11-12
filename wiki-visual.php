@@ -12,10 +12,10 @@
 
         function sanitize(string) {
             var temp = string;
-            var index = string.indexOf("_");
+            var index = temp.indexOf("_");
             while (index != -1) {
                 temp = temp.replace("_", " ");
-                index = string.indexOf("_");
+                index = temp.indexOf("_");
             }
             return temp.substring(0, 15);
         }
