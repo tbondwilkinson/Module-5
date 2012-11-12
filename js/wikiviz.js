@@ -53,7 +53,6 @@ function loadPageLinks(data) {
     layer.add(label);
 
     // add the layer to the stage
-    stage.add(layer);
 
     // Angle in between each pageLink
     var circleMax = 25;
@@ -115,6 +114,7 @@ function loadPageLinks(data) {
     }
 
     stage.add(linksLayer);
+    stage.add(layer);
 }
 
 function loadCategory(data) {
