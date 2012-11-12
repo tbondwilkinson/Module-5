@@ -18,6 +18,13 @@ function loadPageLinks(data) {
 
     var layer = new Kinetic.Layer();
 
+    var fillColor;
+    if (isCategory) {
+        fillColor = "#C4898B";
+    }
+    else {
+        fillColor = "#89C499";
+    }
     var oval = new Kinetic.Ellipse({
         x: stage.getWidth() / 2,
         y: stage.getHeight() / 2,
@@ -25,7 +32,7 @@ function loadPageLinks(data) {
             x: 80,
             y: 30
         },
-        fill: "#C4898B",
+        fill: fillColor,
         stroke: "black",
         strokeWidth: 1
     });
