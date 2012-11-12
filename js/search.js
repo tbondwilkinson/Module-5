@@ -16,7 +16,7 @@ $().ready(function(){
 
   //handle search
   $('#search').keypress(function(event){
-    alert(event);
+    alert(event.currentTarget.value);
   });
 
 });
