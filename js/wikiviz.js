@@ -75,10 +75,9 @@ function loadPageLinks(data) {
     var radius = stage.getWidth() / 8;
     for (var i = 0; i < pageLinks.length; i++) {
         var text = sanitize(pageLinks[i]);
-        // if (pageLinks[i].length > 15) {
-        //     text += "[...]";
-        //     alert(text.length);
-        // }
+        if (pageLinks[i].length > 15) {
+            text += "[...]";
+        }
         var link = new Kinetic.Text({
             x: oval.getX() + Math.cos(angle) * radius - (text.length * 4),
             y: oval.getY() + Math.sin(angle) * radius - 10,
