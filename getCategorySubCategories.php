@@ -2,6 +2,9 @@
 session_start();
 require "database.php";
 
+$_SESSION['category'] = $_GET['category'];
+unset($_SESSION['page']);
+
 $category_title = $_GET['category'];
 
 $results = array();

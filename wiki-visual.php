@@ -9,6 +9,7 @@
     <script type="text/javascript">
         var stage;
         var pageTitle;
+        var category;
 
         function sanitize(string) {
             var temp = string;

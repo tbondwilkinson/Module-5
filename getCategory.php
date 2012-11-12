@@ -2,6 +2,9 @@
 session_start();
 require "database.php";
 
+$_SESSION['page'] = $_GET['post_title'];
+unset($_SESSION['category']);
+
 $stmt = $mysqli->prepare("SELECT page_id FROM page WHERE page_title=?");
 
 if(!$stmt){

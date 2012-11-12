@@ -145,6 +145,21 @@ function start(data) {
     $.get("getPageLinks.php", { post_title: data }, loadPageLinks);
 }
 
+function setLastPlace(data) {
+    var lastPage = JSON.parseJSON(json);
+    if (lastPage.random) {
+        $.get("randomPage.php", {}, start);
+        return;
+    }
+    else if (lastPage.has("category")) {
+        pageTitle = lastPage.category;
+    }
+    else if (lastPage.has("page")) {
+        pageTitle = lastPage.page;
+    }
+    $.get("getPageLinks.php", { post_title: pageTitle}, loadPageLinks);
+}
+
 window.onload = function() {
     // Get the list of images that we will be landmarking from the server.
 
@@ -173,10 +188,11 @@ window.onload = function() {
         $.get("randomPage.php", {}, start);
     });
 
+    $.get("getLastPageOrCategory", {}, setLastPlace);
+
     isCategoryView = false;
     isCategory = false;
 
-    $.get("randomPage.php", {}, start);
     stage = new Kinetic.Stage({
         container: "wiki-container",
         width: 960,
