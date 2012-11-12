@@ -59,12 +59,16 @@
             stage.add(layer);
 
             // Angle in between each pageLink
-            if (pageLinks.length < 50) {
-                var angleConstant = 2 * Math.PI / pageLinks.length;
+            var circleMax = 25;
+            var angleConstant;
+            if (pageLinks.length < circleMax) {
+                angleConstant = 2 * Math.PI / pageLinks.length;
             }
             else {
-                var angleConstant = 2 * Math.PI / 50;
+                angleConstant = 2 * Math.PI / circleMax;
             }
+            var remaining = pageLinks.length;
+            remaining -= circleMax;
             var angle = 0;
 
             var linksLayer = new Kinetic.Layer();
@@ -87,9 +91,17 @@
 
                 linksLayer.add(link);
                 angle += angleConstant;
-                if (i % 50 == 0 && i != 0) {
+                if (i == pageLinks.length - remaining) {
                     angle = 0;
+                    circleMax *= (radius + stage.getWidth() / 8) / radius;
+                    if (remaining < circleMax) {
+                        angleConstant = 2 * Math.PI / remaining;
+                    }
+                    else {
+                        angleConstants = 2 * Math.PI / circleMax;
+                    }
                     radius += stage.getWidth() / 8;
+                    remaing -= circleMax;
                 }
             }
 
