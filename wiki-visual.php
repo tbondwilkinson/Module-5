@@ -69,7 +69,7 @@
             var angleConstant;
             var remaining = pageLinks.length;
             var total = 0;
-            if (pageLinks.length < circleMax) {
+            if (pageLinks.length <= circleMax) {
                 angleConstant = 2 * Math.PI / pageLinks.length;
                 remaining = 0;
                 total += pageLinks.length;
@@ -106,10 +106,10 @@
 
                 linksLayer.add(link);
                 angle += angleConstant;
-                if (i == total) {
+                if (i == total - 1) {
                     angle = 0;
                     circleMax *= (radius + stage.getWidth() / 8) / radius;
-                    if (remaining < circleMax) {
+                    if (remaining <= circleMax) {
                         angleConstant = 2 * Math.PI / remaining;
                         remaining = 0;
                         total = pageLinks.length;
