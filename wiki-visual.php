@@ -10,17 +10,14 @@
         var stage;
         var pageTitle;
 
-        function ReplaceAll(string,stringToFind,stringToReplace){
-            var index = string.indexOf(stringToFind);
-            while(index != -1){
-                string = string.replace(stringToFind,stringToReplace);
-                index = string.indexOf(stringToFind);
-            }
-            return string;
-        }
-
         function sanitize(string) {
-            return ReplaceAll(string, "_", " ").substring(0, 15);
+            var temp = string;
+            var index = string.indexOf("_");
+            while (index != -1) {
+                temp = temp.replace("_", " ");
+                index = string.indexOf("_");
+            }
+            return temp.substring(0, 15);
         }
 
         function loadPageLinks(data) {
