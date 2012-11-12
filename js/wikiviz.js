@@ -168,6 +168,7 @@ window.onload = function() {
     });
 
     isCategoryView = false;
+    isCategory = false;
 
     $.get("randomPage.php", {}, start);
     stage = new Kinetic.Stage({
