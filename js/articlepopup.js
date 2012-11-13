@@ -49,6 +49,7 @@ articlepopmanager.showwikiarticle = function(article_title, in_canvas, x, y) {
         function(data){
           var json = JSON.parse(data);
           var summary = json.summary.replace(/\[.*\]/g,'').replace(/\(.*\)/g, '');
+          alert(summary);
           articlepopmanager.show(articlepopmanager.in_canvas,
             articlepopmanager.x, articlepopmanager.y, json.title,
             "http:"+json.img, summary);
