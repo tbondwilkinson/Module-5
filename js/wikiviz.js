@@ -14,6 +14,9 @@ function sanitize(string) {
 }
 
 function loadPageOrCategoryLinks(data) {
+    //setup title
+    $('#hmessage').text(sanitize(pageTitle));
+
     var links = JSON.parse(data);
 
     var layer = new Kinetic.Layer();
