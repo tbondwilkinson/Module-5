@@ -37,7 +37,7 @@ foreach ($items as $item) {
 }
 
 //get all p
-$items = $dom_xpath->query("//*[@id='mw-content-text']//p");
+$items = $dom_xpath->query("//*[@id='mw-content-text']/p");
 
 //json encode:
 if ($items->length > 0)
