@@ -1,10 +1,12 @@
 <?php
 include("simpleHtmlDom.php");
 
-$url="http://simple.wikipedia.org/wiki/".$_GET['title'];
+$url="http://simple.wikipedia.org/wiki/" . $_GET['title'];
 
 // Create DOM from URL or file
 $html = file_get_html($url);
+
+echo $html;
 
 // Find all images 
 $imgTW = $html->find('#infobox')->find("//a/img");
