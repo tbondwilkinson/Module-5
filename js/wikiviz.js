@@ -57,7 +57,7 @@ function loadPageOrCategoryLinks(data) {
 
     label.on("mouseover", function () {
         if (!isCategory) {
-            articlepopmanager.showwikiarticle(pageTitle, false, 0, 0);
+            articlepopmanager.showwikiarticle(pageTitle, true, 0, 0);
         }
     });
 
