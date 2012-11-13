@@ -13,6 +13,10 @@ function sanitize(string) {
     return temp;
 }
 
+function displayImageandSumary(data) {
+
+}
+
 function loadPageOrCategoryLinks(data) {
     //setup title
     $('#hmessage').text(sanitize(pageTitle));
@@ -56,7 +60,9 @@ function loadPageOrCategoryLinks(data) {
     });
 
     label.on("hover", function () {
-
+        if (!isCategory) {
+            $.get("wikiParse", { title: pageTitle }, displayImageAndSummary);
+        }
     });
 
     layer.add(label);

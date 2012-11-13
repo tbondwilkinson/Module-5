@@ -24,10 +24,9 @@ if ($items->length >0)
 
 $items = $dom_xpath->query("//*[@id='mw-content-text']//a/img");//[@class='image']/img");
 //json encode:
-print($items->length);
 if ($items->length > 0)
 foreach ($items as $item) {
-	if ($item->getAttribute('width') > 150 && $item->getAttribute("height") > 150) {
+	if ($item->getAttribute('width') > 50 && $item->getAttribute("height") > 50) {
 		$jsondata['img']= $item->getAttribute('src');
 		break;
 	}
