@@ -141,7 +141,6 @@ function loadPageOrCategoryLinks(data) {
             y: startY,
             stroke: "black",
             fontSize: sizeOfFont,
-            fontFamily: "monospace",
             strokeWidth: "2",
             fill: "#ddd",
             text: text,
