@@ -1,4 +1,7 @@
 var articlepopmanager = {};
+var articlepopmanager.x=0;
+var articlepopmanager.y=0;
+var articlepopmanager.in_canvas=false;
 
 /* x_coord and y_coord are relative to the canvas, if in_canvas is true */
 articlepopmanager.show = function(in_canvas, x_coord, y_coord, title, img_url, summary) {
@@ -34,6 +37,10 @@ articlepopmanager.show = function(in_canvas, x_coord, y_coord, title, img_url, s
 
 articlepopmanager.hide = function() {
   $('#articlepop').hide('fade');
+}
+
+articlepopmanager.showwikiarticle = function() {
+
 }
 
 //initialize on page buttons
