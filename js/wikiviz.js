@@ -26,13 +26,6 @@ function loadPageLinks(data) {
         fillColor =  "#C4898B";
     }
 
-    var fontSize = 16;
-    var fontHeight = 8;
-    if(sanitize(pageTitle).length > 16) {
-        fontSize = 10;
-        fontHeight = 5;
-    }
-
     var label = new Kinetic.Text({
         x: stage.getWidth() / 2,
         y: 20,
@@ -112,8 +105,8 @@ function loadPageLinks(data) {
 
     for (var i = 0; i < pageLinks.length; i++) {
         var text = sanitize(pageLinks[i]);
-        if (pageLinks[i].length > 15) {
-            text += "[...]";
+        if (pageLinks[i].length > 10) {
+            text += "...";
         }
         var link = new Kinetic.Text({
             x: startX,
