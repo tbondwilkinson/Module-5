@@ -7,7 +7,7 @@ $url="http://simple.wikipedia.org/wiki/" . $_GET['title'];
 $html = file_get_html($url);
 
 // Find all images 
-echo $html->find('#mw_content_text', 0);
+echo $html->find('#mw-content-text', 0);
 
 echo "<br>We should see it above this";
 //load in the page
