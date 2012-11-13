@@ -13,7 +13,7 @@ function sanitize(string) {
     return temp;
 }
 
-function displayImageandSumary(data) {
+function displayImageAndSumary(data) {
     var json = JSON.parse(data);
     articlepopmanager.show(articlepopmanager.in_canvas, articlepopmanager.x, articlepopmanager.y, json.title, json.img, json.summary);
 }
