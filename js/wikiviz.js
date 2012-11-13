@@ -154,6 +154,8 @@ function loadPageOrCategoryLinks(data) {
             padding: 5
         });
 
+        link.on("click", reloadVisualizer(links[i]));
+
         linksLayer.add(link);
 
         // Determine whether we want to start placing links on a new line
