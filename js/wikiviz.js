@@ -14,7 +14,8 @@ function sanitize(string) {
 }
 
 function displayImageandSumary(data) {
-
+    var json = JSON.parse(data);
+    articlepopmanager.show(articlepopmanager.in_canvas, articlepopmanager.x, articlepopmanager.y, json.title, json.img, json.summary);
 }
 
 function loadPageOrCategoryLinks(data) {
@@ -59,10 +60,14 @@ function loadPageOrCategoryLinks(data) {
         window.open(url + pageTitle);
     });
 
-    label.on("hover", function () {
+    label.on("mouseover", function () {
         if (!isCategory) {
             $.get("wikiParse", { title: pageTitle }, displayImageAndSummary);
         }
+    });
+
+    label.on("mouseout", function() {
+        articlepopmanager.hide();
     });
 
     layer.add(label);
