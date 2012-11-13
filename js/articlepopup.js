@@ -12,9 +12,6 @@ articlepopmanager.show = function(title, img_url, summary) {
     if(img_url===$('#ap_image').attr('src')) {
       $('#ap_image').show('blind');
     } else {
-      $('#ap_image').load(function(){
-        $('#ap_image').show('blind');
-      });
       $('#ap_image').attr('src', img_url);
     }      
   }
@@ -62,4 +59,7 @@ articlepopmanager.showwikiarticle = function(article_title, in_canvas, x, y) {
 
 //initialize on page buttons
 $().ready(function(){
+  $('#ap_image').load(function(){
+    $('#ap_image').show('blind');
+  });
 });
