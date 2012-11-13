@@ -58,7 +58,7 @@ articlepopmanager.showwikiarticle = function(article_title, in_canvas, x, y) {
           var summary = json.summary.replace(/\[.*?\]/g,'').replace(/\(.*?\)/g, '');
           articlepopmanager.show(articlepopmanager.in_canvas,
             articlepopmanager.x, articlepopmanager.y, json.title,
-            ((json.img=="")?"":"http:"+json.img), summary);
+            ((json.img==="")?"":"http:"+json.img), summary);
 
         });
 };
