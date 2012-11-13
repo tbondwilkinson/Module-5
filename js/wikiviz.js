@@ -70,8 +70,8 @@ function loadPageLinks(data) {
         sizeOfFont = 26;
     }
     else if (pageLinks.length < 25) {
-        padX = 75;
-        padY = 75;
+        padX = 60;
+        padY = 60;
         sizeOfFont = 24;
     }
     else if (pageLinks.length < 50) {
