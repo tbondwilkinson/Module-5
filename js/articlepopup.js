@@ -15,7 +15,7 @@ articlepopmanager.show = function(in_canvas, x_coord, y_coord, title, img_url, s
   }
 
   /* initialize article popup contents */
-  if(ap_image==""){
+  if(ap_image===""){
     $('#ap_image').hide();
   } else {
     $('#ap_image').attr('src', img_url);
@@ -24,7 +24,7 @@ articlepopmanager.show = function(in_canvas, x_coord, y_coord, title, img_url, s
 
   $('#ap_title').text(title);
 
-  if(summary==""){
+  if(summary===""){
     $('#ap_summ').hide();
   } else {
     $('#ap_summ').text(summary);
@@ -33,11 +33,11 @@ articlepopmanager.show = function(in_canvas, x_coord, y_coord, title, img_url, s
 
   /* show it */
   $('#articlepop').show('fade');
-}
+};
 
 articlepopmanager.hide = function() {
   $('#articlepop').hide('fade');
-}
+};
 
 articlepopmanager.showwikiarticle = function(article_title, in_canvas, x, y) {
   //update internal state...
@@ -48,12 +48,13 @@ articlepopmanager.showwikiarticle = function(article_title, in_canvas, x, y) {
         {title: article_title},
         function(data){
           var json = JSON.parse(data);
+          var summary = json.summary.replace(/\[.*\]/g,'').replace(/\(.*\)/g, '');
           articlepopmanager.show(articlepopmanager.in_canvas,
             articlepopmanager.x, articlepopmanager.y, json.title,
             "http:"+json.img, json.summary);
 
         });
-}
+};
 
 //initialize on page buttons
 $().ready(function(){
