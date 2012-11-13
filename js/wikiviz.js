@@ -105,7 +105,8 @@ function loadPageLinks(data) {
 
     for (var i = 0; i < pageLinks.length; i++) {
         var text = sanitize(pageLinks[i]);
-        if (pageLinks[i].length > 10) {
+        if (pageLinks[i].length > 15) {
+            text = text.substring(0, 15);
             text += "...";
         }
         var link = new Kinetic.Text({
