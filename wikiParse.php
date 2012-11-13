@@ -7,7 +7,7 @@ $url="http://simple.wikipedia.org/wiki/" . $_GET['title'];
 $html = file_get_html($url);
 
 // Find all images 
-$imgTW = $html->find('#infobox')->find("img");
+$imgTW = $html->find('#infobox', 0)->find("img", 0);
 
 echo $imgTW->src;
 
