@@ -64,12 +64,15 @@ function loadPageLinks(data) {
 
     var startX, startY, padX, padY, sizeOfFont;
 
-    startX = 0;
-    startY = 60;
-    if (pageLinks.length < 25) {
+    if (pageLinks.length < 15) {
         padX = 100;
         padY = 100;
         sizeOfFont = 26;
+    }
+    else if (pageLinks.length < 25) {
+        padX = 75;
+        padY = 75;
+        sizeOfFont = 24;
     }
     else if (pageLinks.length < 50) {
         padX = 50;
@@ -91,6 +94,10 @@ function loadPageLinks(data) {
         padX = 5;
         sizeOfFont = 10;
     }
+
+
+    startX = padX;
+    startY = 60;
 
     for (var i = 0; i < pageLinks.length; i++) {
         var text = sanitize(pageLinks[i]);
@@ -119,9 +126,9 @@ function loadPageLinks(data) {
         if (startX + link.getWidth() > stage.getWidth()) {
             startY += link.getHeight();
             startY += padY;
-            link.setX(0);
+            link.setX(padX);
             link.setY(startY);
-            startX = link.getWidth();
+            startX = link.getWidth() + padX;
             startX += padX;
         }
         else {
