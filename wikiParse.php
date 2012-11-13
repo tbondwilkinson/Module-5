@@ -23,7 +23,7 @@ if ($items->length >0)
 //get all img
 $items = $dom_xpath->query("/html/body/div[@id='mw-content-text']");//[@class='image']/img");
 //json encode:
-print_r($items);
+print($items);
 if ($items->length > 0)
 	$jsondata['img']=$items->item(0)->getAttribute('src');
 
