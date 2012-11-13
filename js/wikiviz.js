@@ -246,5 +246,5 @@ window.onload = function() {
         height: 960
     });
 
-    $.get("http://simple.wikipedia.org/w/api.php", { action: "query", prop: "images", format: "jsonp", imlimit: 20, imdir: "ascending", titles: "United_States"}, testCallback);
+    $.ajax({url: "http://simple.wikipedia.org/w/api.php", data: { action: "query", prop: "images", format: "jsonp", imlimit: 20, imdir: "ascending", titles: "United_States"}}).done(function() { alert("Done!");});
 };
