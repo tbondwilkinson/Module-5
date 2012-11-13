@@ -156,7 +156,7 @@ function loadPageOrCategoryLinks(data) {
         link.on("click", reloadVisualizer(links[i]));
 
         link.on("mouseover", showSummary(i));
-        link.on("mouseoff", hideSummary(i));
+        link.on("mouseout", hideSummary());
 
         linkObjects[i] = link;
 
@@ -214,9 +214,9 @@ function showSummary(index) {
     };
 }
 
-function hideSummary(index) {
+function hideSummary() {
     return function(event) {
-        alert(timeout)
+        alert(timeout);
         clearTimeout(timeout);
         alert(timeout);
         articlepopmanager.hide();
