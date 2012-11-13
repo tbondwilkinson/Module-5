@@ -258,7 +258,7 @@ window.onload = function() {
         },
         dataType: "jsonp",
         success: function(jsonObject) {
-            alert(jsonObject.images);
+            alert(jsonObject.query.pages.219587.images[0]);
         }
     });
 };
