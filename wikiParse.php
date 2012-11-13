@@ -3,7 +3,7 @@ $url="http://simple.wikipedia.org/wiki/".$_GET['title'];
 
 //load in the page
 $str = file_get_contents($url);
-$DOM = new DOMDocument;
+$DOM = new DOMDocument();
 $DOM->loadHTML($str);
 
 $dom_xpath = new DOMXpath($DOM);
