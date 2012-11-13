@@ -185,6 +185,7 @@ function reloadVisualizer(text) {
     return function(event) {
         stage.reset();
         pageTitle = text;
+        clearTimeout(timeout);
         articlepopmanager.hide();
         // Depending on whether we're viewing categories, update our flags
         if (isCategoryView) {
