@@ -27,8 +27,8 @@ $items = $dom_xpath->query("//*[@id='mw-content-text']//a/img");//[@class='image
 print($items->length);
 if ($items->length > 0)
 foreach ($items as $item) {
-	if ($item(0)->getAttribute("width") > 150 and $item(0)->getAttribute("height") > 150) {
-		$jsondata['img']=$items->item(0)->getAttribute('src');
+	if ($item->getAttribute('width') > 150 && $item->getAttribute("height") > 150) {
+		$jsondata['img']= $item->getAttribute('src');
 		break;
 	}
 }
