@@ -44,7 +44,7 @@ font-weight:500;
 	/*display: block;*/
 	position:absolute;
 	width:200px;
-	height:200px;
+	max-height:400px;
 	top:0;left:0;
 	background-color:orange;
 	padding: 0; 
@@ -54,6 +54,35 @@ font-weight:500;
 	z-index:4; /*so it's on top of the whole thing*/
 
 	overflow:hidden; /*this is kinda temporary hopefully*/
+}
+
+.ap_imagediv {
+position: relative;
+padding: 0;
+margin: 0;
+min-height: 50px;
+}
+
+.ap_title {
+position: absolute;
+bottom: 5px;
+background-color: #C4151C;
+padding: 2px 7px 3px 7px;
+margin: 0 0 4px 0;
+left: 5px;
+max-width: 176px;
+}
+
+.ap_image {
+width: 300px;
+background-color: white;
+}
+
+.ap_summ {
+display: block;
+font-size: 14px;
+padding: 0 2px 0 2px;
+text-align: justify;
 }
   
 /*content pane*/

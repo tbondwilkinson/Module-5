@@ -19,7 +19,7 @@ articlepopmanager.show = function(in_canvas, x_coord, y_coord, title, img_url, s
     $('#ap_image').hide();
   } else {
     $('#ap_image').load(function(){
-      $('#ap_image').show('blind');
+      $('#ap_image').show('fade');
     });
     $('#ap_image').attr('src', img_url);
   }
