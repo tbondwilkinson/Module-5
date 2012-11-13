@@ -22,7 +22,7 @@ if ($items->length >0)
 
 //get all img
 
-$items = $dom_xpath->query("//*[@id='mw-content-text']//img");//[@class='image']/img");
+$items = $dom_xpath->query("//*[@id='mw-content-text']//a/img");//[@class='image']/img");
 //json encode:
 print($items->length);
 if ($items->length > 0)
