@@ -2,6 +2,7 @@ var stage;
 var pageTitle;
 var isCategory;
 var isCategoryView;
+var linkObjects = [];
 
 function sanitize(string) {
     var temp = string;
@@ -156,6 +157,11 @@ function loadPageOrCategoryLinks(data) {
 
         link.on("click", reloadVisualizer(links[i]));
 
+        link.on("mouseover", showSummary(i));
+        link.on("mouseoff", hideSummary(i));
+
+        linkObjects[i] = link;
+
         linksLayer.add(link);
 
         // Determine whether we want to start placing links on a new line
@@ -198,6 +204,21 @@ function reloadVisualizerForPage(text) {
         //reload!
         isCategoryView=false;
         reloadVisualizer(text)();
+    };
+}
+
+function showSummary(index) {
+    return function(event) {
+        if (!isCategoryView) {
+            var tempLink = linkObjects[index];
+            articlepopmanager.showwikiarticle(tempLink.text, true, tempLink.getX() + tempLink.getWidth()/2, tempLink.getY() + tempLink.getHeight() + 40);
+        }
+    };
+}
+
+function hideSummary(index) {
+    return function(event) {
+        articlepopmanager.hide();
     };
 }
 
