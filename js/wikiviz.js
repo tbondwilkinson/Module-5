@@ -55,9 +55,13 @@ function loadPageOrCategoryLinks(data) {
         window.open(url + pageTitle);
     });
 
-    label.on("mouseover", function () {
+
+    var x_mouseover = (stage.getWidth()/2)-200;
+    var y_mouseover = 40;
+    label.on("mouseover", function (event) {
         if (!isCategory) {
-            articlepopmanager.showwikiarticle(pageTitle, true, 0, 0);
+            articlepopmanager.showwikiarticle(pageTitle, true, x_mouseover,
+                y_mouseover);
         }
     });
 
