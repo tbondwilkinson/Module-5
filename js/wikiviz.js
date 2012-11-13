@@ -52,6 +52,10 @@ function loadPageOrCategoryLinks(data) {
         window.open(url + pageTitle);
     });
 
+    label.on("hover", function () {
+
+    });
+
     layer.add(label);
 
     var linksLayer = new Kinetic.Layer();
