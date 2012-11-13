@@ -211,7 +211,7 @@ function showSummary(index) {
     return function(event) {
         if (!isCategoryView) {
             var tempLink = linkObjects[index];
-            articlepopmanager.showwikiarticle(tempLink.text, true, tempLink.getX() + tempLink.getWidth()/2, tempLink.getY() + tempLink.getHeight() + 40);
+            articlepopmanager.showwikiarticle(tempLink.getText(), true, tempLink.getX() + tempLink.getWidth()/2, tempLink.getY() + tempLink.getHeight() + 40);
         }
     };
 }
