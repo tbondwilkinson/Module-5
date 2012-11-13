@@ -1,10 +1,12 @@
 <?php
-$url="http://simple.wikipedia.org/wiki/"+$_GET['title'];
+$url="http://simple.wikipedia.org/wiki/".$_GET['title'];
 
 //load in the page
-$str = file_get_contents(urlencode($url));
+$str = file_get_contents($url);
 $DOM = new DOMDocument;
 $DOM->loadHTML($str);
+
+$dom_xpath = new DOMXpath($DOM);
 
 $jsondata = array();
 $jsondata['title'] = "";
@@ -19,10 +21,9 @@ if ($items->length >0)
 	$jsondata['title']=$items->item(0)->nodeValue;
 
 //get all img
-$items = $DOM->getElementsByTagName('img');
-
+$items = $dom_xpath->query("//a/img");//[@class='image']/img");
 //json encode:
-if ($items->length >0)
+if ($items->length >2)
 	$jsondata['img']=$items->item(0)->getAttribute('src');
 
 //get all p
