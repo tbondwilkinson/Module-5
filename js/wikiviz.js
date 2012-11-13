@@ -157,6 +157,10 @@ function loadPageOrCategoryLinks(data) {
         // Will reload the canvas with the clicked link as the center
         link.on("click", reloadVisualizer(links[i]));
 
+        link.on("mouseover", hoverOverLink(text));
+
+        link.on("mouseout", hoverOffLink());
+
         linksLayer.add(link);
 
         // Determine whether we want to start placing links on a new line
@@ -200,6 +204,21 @@ function reloadVisualizerForPage(text) {
         isCategoryView=false;
         reloadVisualizer(text)();
     };
+}
+
+function hoverOverLink(text) {
+    if (isCategoryView) {
+        return function() {};
+    }
+    return function(event) {
+        this.timer=window.setTimeout(function() {articlepopmanager.showwikiarticle(text, true, x_mouseover, y_mouseover);}, 2000);
+    };
+}
+
+function hoverOffLink(event) {
+    if(this.timer) {
+        window.clearTimeout(this.timer);
+    }
 }
 
 function loadRandomPage(data) {
