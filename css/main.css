@@ -29,6 +29,7 @@ position:absolute;
   
 .hmessage { 
 background-color:#c4151c; 
+display:none;
 width:auto; 
 padding:2px 7px 3px 7px; 
 margin: 0 0 15px 15px; 
