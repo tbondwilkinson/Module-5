@@ -9,10 +9,14 @@ articlepopmanager.show = function(title, img_url, summary) {
   if(img_url===""){
     $('#ap_image').hide();
   } else {
-    $('#ap_image').load(function(){
+    if(img_url===$('#ap_image').attr('src')){
       $('#ap_image').show('fade');
-    });
-    $('#ap_image').attr('src', img_url);
+    } else {
+      $('#ap_image').load(function(){
+        $('#ap_image').show('fade');
+      });
+      $('#ap_image').attr('src', img_url);
+    }      
   }
 
   $('#ap_title').text(title);
