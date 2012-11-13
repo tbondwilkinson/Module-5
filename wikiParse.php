@@ -9,9 +9,11 @@ $html = file_get_html($url);
 // Find all images 
 $imgTW = $html->find("table.infobox img", 0);
 
+echo $imgTW;
+
 echo $imgTW->src;
 
-$summary = $html->find('#mw_content_text')->find("text", 0);
+$summary = $html->find('#mw_content_text text', 0);
 
 echo $summary;
 
