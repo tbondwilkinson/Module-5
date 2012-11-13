@@ -3,6 +3,7 @@ var pageTitle;
 var isCategory;
 var isCategoryView;
 var linkObjects = [];
+var links;
 
 function sanitize(string) {
     var temp = string;
@@ -18,7 +19,7 @@ function loadPageOrCategoryLinks(data) {
     //setup title
     $('#hmessage').text(sanitize(pageTitle));
 
-    var links = JSON.parse(data);
+    links = JSON.parse(data);
 
     var layer = new Kinetic.Layer();
 
@@ -211,7 +212,7 @@ function showSummary(index) {
     return function(event) {
         if (!isCategoryView) {
             var tempLink = linkObjects[index];
-            articlepopmanager.showwikiarticle(tempLink.getText(), true, tempLink.getX() + tempLink.getWidth()/2, tempLink.getY() + tempLink.getHeight() + 40);
+            articlepopmanager.showwikiarticle(links[index], true, tempLink.getX() + tempLink.getWidth()/2, tempLink.getY() + tempLink.getHeight() + 40);
         }
     };
 }
