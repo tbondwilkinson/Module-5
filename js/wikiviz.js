@@ -216,9 +216,7 @@ function showSummary(index) {
 
 function hideSummary() {
     return function(event) {
-        alert(timeout);
         clearTimeout(timeout);
-        alert(timeout);
         articlepopmanager.hide();
     };
 }
