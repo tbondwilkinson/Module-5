@@ -153,7 +153,7 @@ function loadPageOrCategoryLinks(data) {
             padding: 5
         });
 
-        link.on("click", reloadVisualizer(link, links[i]));
+        link.on("click", reloadVisualizer(links[i]));
 
         link.on("mouseover", showSummary(i));
         link.on("mouseout", hideSummary());
@@ -205,11 +205,12 @@ function reloadVisualizerForPage(text) {
     };
 }
 
-function showSummary(link, text) {
+function showSummary(index) {
     return function(event) {
         if (!isCategoryView) {
+            var tempLink = linkObjects[index];
             timeout = setTimeout(function() {
-                articlepopmanager.showwikiarticle(text, true, link.getX(), link.getY() + link.getHeight() + 20);
+                articlepopmanager.showwikiarticle(links[index], true, tempLink.getX(), tempLink.getY() + tempLink.getHeight() + 20);
             }, 1000);
         }
     };
