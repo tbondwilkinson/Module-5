@@ -23,7 +23,7 @@ articlepopmanager.show = function(in_canvas, x_coord, y_coord, title, img_url, s
 
   if(summary==""){
     $('#ap_summ').hide();
-  } else {}
+  } else {
     $('#ap_summ').text(summary);
     $('#ap_summ').show();
   }
