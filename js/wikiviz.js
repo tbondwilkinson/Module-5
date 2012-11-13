@@ -89,7 +89,7 @@ function loadPageLinks(data) {
         padX = 12;
         sizeOfFont = 12;
     }
-    else if (pageLinks.length < 300) {
+    else if (pageLinks.length < 400) {
         padY = 5;
         padX = 5;
         sizeOfFont = 10;
@@ -99,6 +99,7 @@ function loadPageLinks(data) {
         padX = 0;
         sizeOfFont = 8;
     }
+    alert(pageLinks.length);
 
 
     startX = padX;
