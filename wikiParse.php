@@ -21,8 +21,9 @@ if ($items->length >0)
 	$jsondata['title']=$items->item(0)->nodeValue;
 
 //get all img
-$items = $dom_xpath->query("//div[@id='mw-content-text']/img");//[@class='image']/img");
+$items = $dom_xpath->query("//div[@id='mw-content-text']/a/img");//[@class='image']/img");
 //json encode:
+print_r($items);
 if ($items->length > 0)
 	$jsondata['img']=$items->item(0)->getAttribute('src');
 
