@@ -2,7 +2,7 @@
 $url="http://simple.wikipedia.org/wiki/".$_GET['title'];
 
 //load in the page
-$str = file_get_contents(urlencode($url));
+$str = file_get_contents($url);
 $DOM = new DOMDocument();
 libxml_use_internal_errors(true);
 $DOM->loadHTML($str);
