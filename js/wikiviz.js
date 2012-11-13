@@ -97,7 +97,7 @@ function loadPageLinks(data) {
 
 
     startX = padX;
-    startY = 60;
+    startY = 40 + padY;
 
     for (var i = 0; i < pageLinks.length; i++) {
         var text = sanitize(pageLinks[i]);
