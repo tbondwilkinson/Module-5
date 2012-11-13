@@ -18,8 +18,10 @@ articlepopmanager.show = function(in_canvas, x_coord, y_coord, title, img_url, s
   if(ap_image===""){
     $('#ap_image').hide();
   } else {
+    $('#ap_image').load(function(){
+      $('#ap_image').show('blind');
+    });
     $('#ap_image').attr('src', img_url);
-    $('#ap_image').show('blind');
   }
 
   $('#ap_title').text(title);
