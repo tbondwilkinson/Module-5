@@ -258,8 +258,7 @@ window.onload = function() {
         },
         dataType: "jsonp",
         success: function(jsonObject) {
-            var json = JSON.parse(jsonObject);
-            alert(json);
+            alert(jsonObject.images[3].title);
         }
     });
 };
