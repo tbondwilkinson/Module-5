@@ -245,20 +245,4 @@ window.onload = function() {
         width: 960,
         height: 960
     });
-
-    $.ajax({
-        url: "http://simple.wikipedia.org/w/api.php",
-        data: {
-            action: "query",
-            prop: "images",
-            format: "json",
-            imlimit: 20,
-            imdir: "ascending",
-            titles: "United_States"
-        },
-        dataType: "jsonp",
-        success: function(jsonObject) {
-            alert(jsonObject.query.pages[219587].images[0].title);
-        }
-    });
 };
