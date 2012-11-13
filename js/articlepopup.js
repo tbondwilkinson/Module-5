@@ -19,7 +19,7 @@ articlepopmanager.show = function(in_canvas, x_coord, y_coord, title, img_url, s
     $('#ap_image').hide();
   } else {
     $('#ap_image').attr('src', img_url);
-    $('#ap_image').show();
+    $('#ap_image').show('blind');
   }
 
   $('#ap_title').text(title);
@@ -28,11 +28,8 @@ articlepopmanager.show = function(in_canvas, x_coord, y_coord, title, img_url, s
     $('#ap_summ').hide();
   } else {
     $('#ap_summ').text(summary);
-    $('#ap_summ').show();
+    $('#ap_summ').show('blind');
   }
-
-  /* show it */
-  $('#articlepop').show('fade');
 };
 
 articlepopmanager.hide = function() {
@@ -44,6 +41,14 @@ articlepopmanager.showwikiarticle = function(article_title, in_canvas, x, y) {
   articlepopmanager.x=x;
   articlepopmanager.y=y;
   articlepopmanager.in_canvas=in_canvas;
+
+  //update some stuff.
+  $('#ap_image').hide();
+  $('#ap_summ').hide();
+  $('#ap_title').text('Loading...');
+  $('#articlepop').show('fade');
+
+
   $.get("wikiParse.php",
         {title: article_title},
         function(data){
