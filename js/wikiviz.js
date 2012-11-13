@@ -13,8 +13,8 @@ function sanitize(string) {
     return temp;
 }
 
-function loadPageLinks(data) {
-    var pageLinks = JSON.parse(data);
+function loadPageOrCategoryLinks(data) {
+    var links = JSON.parse(data);
 
     var layer = new Kinetic.Layer();
 
@@ -26,6 +26,7 @@ function loadPageLinks(data) {
         fillColor =  "#C4898B";
     }
 
+    // The page or category text
     var label = new Kinetic.Text({
         x: stage.getWidth() / 2,
         y: 20,
@@ -39,8 +40,10 @@ function loadPageLinks(data) {
         padding: 5
     });
 
+    // Center the title
     label.setX(label.getX() - label.getWidth()/2);
 
+    // Open the category or page in a new window
     label.on("click", function() {
         var url = "http://simple.wikipedia.org/wiki/";
         if (isCategory) {
@@ -51,53 +54,52 @@ function loadPageLinks(data) {
 
     layer.add(label);
 
-    // add the layer to the stage
-
     var linksLayer = new Kinetic.Layer();
 
     var startX, startY, padX, padY, sizeOfFont;
 
-    if (pageLinks.length < 5) {
+    // Variable sizing depending on how many links we have to display
+    if (links.length < 5) {
         padX = 150;
         padY = 150;
         sizeOfFont = 40;
     }
-    else if (pageLinks.length < 10) {
+    else if (links.length < 10) {
         padX = 100;
         padY = 100;
         sizeOfFont = 30;
     }
-    else if (pageLinks.length < 15) {
+    else if (links.length < 15) {
         padX = 100;
         padY = 100;
         sizeOfFont = 26;
     }
-    else if (pageLinks.length < 25) {
+    else if (links.length < 25) {
         padX = 60;
         padY = 60;
         sizeOfFont = 24;
     }
-    else if (pageLinks.length < 50) {
+    else if (links.length < 50) {
         padX = 40;
         padY = 40;
         sizeOfFont = 21;
     }
-    else if (pageLinks.length < 100) {
+    else if (links.length < 100) {
         padX = 20;
         padY = 20;
         sizeOfFont = 17;
     }
-    else if (pageLinks.length < 200) {
+    else if (links.length < 200) {
         padY = 12;
         padX = 12;
         sizeOfFont = 12;
     }
-    else if (pageLinks.length < 300) {
+    else if (links.length < 300) {
         padY = 5;
         padX = 5;
         sizeOfFont = 10;
     }
-    else if (pageLinks.length < 500) {
+    else if (links.length < 500) {
         padY = 1;
         padX = 1;
         sizeOfFont = 9;
@@ -111,12 +113,16 @@ function loadPageLinks(data) {
     startX = padX;
     startY = 50 + padY;
 
-    for (var i = 0; i < pageLinks.length; i++) {
-        var text = sanitize(pageLinks[i]);
-        if (pageLinks[i].length > 15) {
+    // Draw each link on the canvas
+    for (var i = 0; i < links.length; i++) {
+        var text = sanitize(links[i]);
+
+        // If the title is too long, shorten it
+        if (links[i].length > 15) {
             text = text.substring(0, 12);
             text += "...";
         }
+
         var link = new Kinetic.Text({
             x: startX,
             y: startY,
@@ -132,10 +138,12 @@ function loadPageLinks(data) {
             padding: 5
         });
 
-        link.on("click", bindText(pageLinks[i]));
+        // Will reload the canvas with the clicked link as the center
+        link.on("click", reloadVisualizer(links[i]));
 
         linksLayer.add(link);
 
+        // Determine whether we want to start placing links on a new line
         if (startX + link.getWidth() > stage.getWidth()) {
             startY += link.getHeight();
             startY += padY;
@@ -150,123 +158,72 @@ function loadPageLinks(data) {
         }
     }
 
-    // // Angle in between each pageLink
-    // var circleMax = 25;
-    // var angleConstant;
-    // var remaining = pageLinks.length;
-    // var total = 0;
-    // if (pageLinks.length <= circleMax) {
-    //     angleConstant = 2 * Math.PI / pageLinks.length;
-    //     remaining = 0;
-    //     total += pageLinks.length;
-    // }
-    // else {
-    //     remaining -= circleMax;
-    //     total += circleMax;
-    //     angleConstant = 2 * Math.PI / circleMax;
-    // }
-    // var angle = 0;
-
-    // var linksLayer = new Kinetic.Layer();
-    // var radius = stage.getWidth() / 8;
-    // for (var i = 0; i < pageLinks.length; i++) {
-    //     var text = sanitize(pageLinks[i]);
-    //     if (pageLinks[i].length > 15) {
-    //         text += "[...]";
-    //     }
-    //     var link = new Kinetic.Text({
-    //         x: label.getX() + Math.cos(angle) * radius - (text.length * 4),
-    //         y: label.getY() + Math.sin(angle) * radius - 10,
-    //         stroke: "black",
-    //         fontFamily: "monospace",
-    //         strokeWidth: "2",
-    //         fill: "#ddd",
-    //         text: text,
-    //         textFill: "black",
-    //         align: "center",
-    //         padding: 5
-    //     });
-
-    //     link.on("click", bindText(pageLinks[i]));
-
-    //     linksLayer.add(link);
-    //     angle += angleConstant;
-    //     if (i == total - 1) {
-    //         angle = 0;
-    //         circleMax *= (radius + stage.getWidth() / 8) / radius;
-    //         if (remaining <= circleMax) {
-    //             angleConstant = 2 * Math.PI / remaining;
-    //             remaining = 0;
-    //             total = pageLinks.length;
-    //         }
-    //         else {
-    //             angleConstant = 2 * Math.PI / circleMax;
-    //             remaining -= circleMax;
-    //             total += circleMax;
-    //         }
-    //         radius += stage.getWidth() / 8;
-    //     }
-    // }
-
     stage.add(linksLayer);
     stage.add(layer);
 }
 
-function bindText(text) {
+function reloadVisualizer(text) {
     return function(event) {
         stage.reset();
         pageTitle = text;
+        // Depending on whether we're viewing categories, update our flags
         if (isCategoryView) {
             isCategory = true;
-            $.get("getCategorySubCategories.php", { category: text}, loadPageLinks);
+            $.get("getCategorySubCategories.php", { category: text}, loadPageOrCategoryLinks);
         }
         else {
             isCategory = false;
-            $.get("getPageLinks.php", { post_title: text }, loadPageLinks);
+            $.get("getPageLinks.php", { post_title: text }, loadPageOrCategoryLinks);
         }
     };
 }
 
-function start(data) {
+function loadRandomPage(data) {
     pageTitle = data;
-    $.get("getPageLinks.php", { post_title: data }, loadPageLinks);
+    $.get("getPageLinks.php", { post_title: data }, loadPageOrCategoryLinks);
 }
 
-function setLastPlace(data) {
+function firstLoad(data) {
     var lastPage = JSON.parse(data);
+
+    // Load the links depending on whether we have a saved spot or not
     if (lastPage.random) {
-        $.get("randomPage.php", {}, start);
+        $.get("randomPage.php", {}, loadRandomPage);
     }
     else if (lastPage.isCategory) {
         isCategory = true;
         pageTitle = lastPage.category;
-        $.get("getCategoryPages.php", { category: lastPage.category}, loadPageLinks);
+        $.get("getCategoryPages.php", { category: lastPage.category}, loadPageOrCategoryLinks);
     }
     else {
         pageTitle = lastPage.page;
-        $.get("getPageLinks.php", { post_title: lastPage.page}, loadPageLinks);
+        $.get("getPageLinks.php", { post_title: lastPage.page}, loadPageOrCategoryLinks);
     }
 }
 
-window.onload = function() {
-    // Get the list of images that we will be landmarking from the server.
+function testCallback(data) {
+    var images = JSON.parse(data);
+}
 
+window.onload = function() {
+
+    // Bind click functions to our three buttons
     $('#pages').click(function() {
         stage.reset();
         isCategoryView = false;
         if (isCategory) {
-            $.get("getCategoryPages.php", { category: pageTitle }, loadPageLinks);
+            $.get("getCategoryPages.php", { category: pageTitle }, loadPageOrCategoryLinks);
         } else {
-            $.get("getPageLinks.php", { post_title: pageTitle }, loadPageLinks);
+            $.get("getPageLinks.php", { post_title: pageTitle }, loadPageOrCategoryLinks);
         }
     });
     $('#categories').click(function() {
         stage.reset();
         isCategoryView = true;
         if (isCategory) {
-            $.get("getCategorySubCategories.php", { category: pageTitle }, loadPageLinks);
+            $.get("getCategorySubCategories.php", { category: pageTitle }, loadPageOrCategoryLinks);
         } else {
-            $.get("getCategory.php", { post_title: pageTitle }, loadPageLinks);
+            $.get("getCategory.php", { post_title: pageTitle }, loadPageOrCategoryLinks);
         }
     });
     $('#random').click(function() {
@@ -276,14 +233,18 @@ window.onload = function() {
         $.get("randomPage.php", {}, start);
     });
 
-    $.get("getLastPageOrCategory", {}, setLastPlace);
+    // Check to see if we have a saved spot
+    $.get("getLastPageOrCategory", {}, firstLoad);
 
     isCategoryView = false;
     isCategory = false;
 
+    // Construct the stage
     stage = new Kinetic.Stage({
         container: "wiki-container",
         width: 960,
         height: 960
     });
+
+    $.get("http://simple.wikipedia.org/w/api.php", { action: "query", prop: "images", format: "json", imlimit: 20, imdir: "ascending", titles: "United_States"}, testCallback);
 };
