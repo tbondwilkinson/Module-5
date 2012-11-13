@@ -190,7 +190,7 @@ function reloadVisualizerForPage(text) {
         //reload!
         isCategoryView=false;
         reloadVisualizer(text)();
-    }
+    };
 }
 
 function loadRandomPage(data) {

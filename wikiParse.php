@@ -1,5 +1,19 @@
 <?php
+include("simpleHtmlDom.php");
+
 $url="http://simple.wikipedia.org/wiki/".$_GET['title'];
+
+// Create DOM from URL or file
+$html = file_get_html($url);
+
+// Find all images 
+$imgTW = $html->find('#infobox')->find("//a/img");
+
+echo $imgTW->src;
+
+$summary = $html->find('#mw_content_text')->find("text", 0);
+
+echo $summary;
 
 //load in the page
 $str = file_get_contents($url);
@@ -24,7 +38,7 @@ if ($items->length >0)
 $items = $dom_xpath->query("//a/img");//[@class='image']/img");
 //json encode:
 if ($items->length >2)
-	$jsondata['img']=$items->item(0)->getAttribute('src');
+	$jsondata['img']=$img;
 
 //get all p
 $items = $DOM->getElementsByTagName('p');
