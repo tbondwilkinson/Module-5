@@ -4,6 +4,7 @@ var isCategory;
 var isCategoryView;
 var linkObjects = [];
 var links;
+var timeout;
 
 function sanitize(string) {
     var temp = string;
@@ -208,13 +209,14 @@ function showSummary(index) {
     return function(event) {
         if (!isCategoryView) {
             var tempLink = linkObjects[index];
-            articlepopmanager.showwikiarticle(links[index], true, tempLink.getX(), tempLink.getY() + tempLink.getHeight() + 20);
+            timeout = setTimeout(function() {articlepopmanager.showwikiarticle(links[index], true, tempLink.getX(), tempLink.getY() + tempLink.getHeight() + 20);}, 2000);
         }
     };
 }
 
 function hideSummary(index) {
     return function(event) {
+        clearTimeout(timeout);
         articlepopmanager.hide();
     };
 }
