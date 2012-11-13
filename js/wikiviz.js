@@ -251,7 +251,7 @@ window.onload = function() {
         stage.reset();
         isCategory = false;
         isCategoryView = false;
-        $.get("randomPage.php", {}, start);
+        $.get("randomPage.php", {}, loadRandomPage);
     });
 
     // Check to see if we have a saved spot
