@@ -7,16 +7,7 @@ $url="http://simple.wikipedia.org/wiki/" . $_GET['title'];
 $html = file_get_html($url);
 
 // Find all images 
-$imgTW = $html->find("table.infobox", 0)->find("img", 0);
-
-echo $imgTW;
-
-echo $imgTW->src;
-
-$summary = $html->find('#mw_content_text text', 0);
-
-echo $summary;
-
+echo $html->find('#mw_content_text', 0);
 //load in the page
 $str = file_get_contents($url);
 $DOM = new DOMDocument;
