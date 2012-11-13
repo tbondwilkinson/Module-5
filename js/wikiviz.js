@@ -16,7 +16,6 @@ function sanitize(string) {
 function displayImageAndSummary(data) {
     var json = JSON.parse(data);
     var summary = json.summary.replace(/\[.*\]/g,'');
-    alert(summary);
     articlepopmanager.show(articlepopmanager.in_canvas, articlepopmanager.x, articlepopmanager.y, json.title, json.img, summary);
 }
 
