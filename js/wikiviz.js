@@ -178,6 +178,14 @@ function reloadVisualizer(text) {
     };
 }
 
+function reloadVisualizerForPage(text) {
+    return function(event) {
+        //reload!
+        isCategoryView=false;
+        reloadVisualizer(text)();
+    }
+}
+
 function loadRandomPage(data) {
     pageTitle = data;
     $.get("getPageLinks.php", { post_title: data }, loadPageOrCategoryLinks);
