@@ -182,7 +182,6 @@ function reloadVisualizer(text) {
     return function(event) {
         stage.reset();
         pageTitle = text;
-        $("#hmessage").text(sanitize(pageTitle));
         // Depending on whether we're viewing categories, update our flags
         if (isCategoryView) {
             isCategory = true;
@@ -205,7 +204,6 @@ function reloadVisualizerForPage(text) {
 
 function loadRandomPage(data) {
     pageTitle = data;
-    $("#hmessage").text(sanitize(pageTitle));
     $.get("getPageLinks.php", { post_title: data }, loadPageOrCategoryLinks);
 }
 
@@ -219,12 +217,10 @@ function firstLoad(data) {
     else if (lastPage.isCategory) {
         isCategory = true;
         pageTitle = lastPage.category;
-        $("#hmessage").text(sanitize(pageTitle));
         $.get("getCategoryPages.php", { category: lastPage.category}, loadPageOrCategoryLinks);
     }
     else {
         pageTitle = lastPage.page;
-        $("#hmessage").text(sanitize(pageTitle));
         $.get("getPageLinks.php", { post_title: lastPage.page}, loadPageOrCategoryLinks);
     }
 }
