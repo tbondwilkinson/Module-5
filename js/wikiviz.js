@@ -13,12 +13,6 @@ function sanitize(string) {
     return temp;
 }
 
-function displayImageAndSummary(data) {
-    var json = JSON.parse(data);
-    var summary = json.summary.replace(/\[.*\]/g,'');
-    articlepopmanager.show(articlepopmanager.in_canvas, articlepopmanager.x, articlepopmanager.y, json.title, json.img, summary);
-}
-
 function loadPageOrCategoryLinks(data) {
     //setup title
     $('#hmessage').text(sanitize(pageTitle));
@@ -63,7 +57,7 @@ function loadPageOrCategoryLinks(data) {
 
     label.on("mouseover", function () {
         if (!isCategory) {
-            $.get("wikiParse", { title: pageTitle }, displayImageAndSummary);
+            articlepopmanager.showwikiarticle(pageTitle, false, 0, 0);
         }
     });
 
