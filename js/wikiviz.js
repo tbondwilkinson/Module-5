@@ -84,6 +84,7 @@ function loadPageLinks(data) {
         });
 
         link.on("click", bindText(pageLinks[i]));
+        link.setCornerRadius(link.getHeight()/2);
 
         linksLayer.add(link);
 
