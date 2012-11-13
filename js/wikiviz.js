@@ -78,13 +78,13 @@ function loadPageLinks(data) {
             strokeWidth: "2",
             fill: "#ddd",
             text: text,
+            cornerRadius: 8.5,
             textFill: "black",
             align: "center",
             padding: 5
         });
 
         link.on("click", bindText(pageLinks[i]));
-        link.setCornerRadius(link.getHeight()/2);
 
         linksLayer.add(link);
 
