@@ -10,7 +10,7 @@ $category_title = $_GET['category'];
 $results = array();
 
 $stmt = $mysqli->prepare("SELECT page.page_title, cl_type FROM categorylinks LEFT JOIN
-                          page ON page.page_id=cl_from WHERE cl_to=?");
+                          page ON page.page_id=cl_from WHERE cl_to=? ORDER BY page.page_len DESC");
 
 if(!$stmt){
   printf("Query Prep Failed: %s\n", $mysqli->error);
