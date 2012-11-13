@@ -157,9 +157,22 @@ function loadPageOrCategoryLinks(data) {
         // Will reload the canvas with the clicked link as the center
         link.on("click", reloadVisualizer(links[i]));
 
-        link.on("mouseover", hoverOverLink(text));
+        link.on("mouseover", function (event) {
+            if (!isCategoryView) {
+                this.timer=window.setTimeout(function() {
+                    articlepopmanager.showwikiarticle(pageTitle, true, startX, startY + link.getHeight());
+                });
+            }
+        });
 
-        link.on("mouseout", hoverOffLink());
+        link.on("mouseout", function (event) {
+            if(this.timer) {
+                window.clearTimeout(this.timer);
+            }
+            else {
+                articlepopmanager.hide();
+            }
+        });
 
         linksLayer.add(link);
 
@@ -219,6 +232,7 @@ function hoverOffLink(event) {
     if(this.timer) {
         window.clearTimeout(this.timer);
     }
+    articlepopmanager.hide();
 }
 
 function loadRandomPage(data) {
