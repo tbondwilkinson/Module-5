@@ -15,7 +15,7 @@ articlepopmanager.show = function(in_canvas, x_coord, y_coord, title, img_url, s
   }
 
   /* initialize article popup contents */
-  if(ap_image===""){
+  if(img_url===""){
     $('#ap_image').hide();
   } else {
     $('#ap_image').load(function(){
