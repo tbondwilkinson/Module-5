@@ -8,6 +8,8 @@ $html = file_get_html($url);
 
 // Find all images 
 echo $html->find('#mw_content_text', 0);
+
+echo "<br>We should see it above this";
 //load in the page
 $str = file_get_contents($url);
 $DOM = new DOMDocument;
