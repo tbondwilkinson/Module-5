@@ -97,8 +97,6 @@ function loadPageLinks(data) {
         padX = 0;
         sizeOfFont = 6;
     }
-    alert(pageLinks.length);
-
 
     startX = padX;
     startY = 50 + padY;
@@ -106,7 +104,7 @@ function loadPageLinks(data) {
     for (var i = 0; i < pageLinks.length; i++) {
         var text = sanitize(pageLinks[i]);
         if (pageLinks[i].length > 15) {
-            text = text.substring(0, 15);
+            text = text.substring(0, 12);
             text += "...";
         }
         var link = new Kinetic.Text({
