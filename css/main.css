@@ -40,8 +40,8 @@ font-weight:500;
 
 /* article popup */
 .articlepop {
-	visibility:hidden;
-	display: block;
+	display:none;
+	/*display: block;*/
 	position:absolute;
 	width:200px;
 	height:200px;
