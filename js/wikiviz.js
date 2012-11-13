@@ -68,9 +68,9 @@ function loadPageLinks(data) {
         sizeOfFont = 24;
     }
     else if (pageLinks.length < 50) {
-        padX = 50;
-        padY = 50;
-        sizeOfFont = 22;
+        padX = 40;
+        padY = 40;
+        sizeOfFont = 21;
     }
     else if (pageLinks.length < 100) {
         padX = 25;
