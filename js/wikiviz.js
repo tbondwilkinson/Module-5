@@ -89,12 +89,14 @@ function loadPageLinks(data) {
 
         if (startX + link.getWidth() > stage.getWidth()) {
             startY += link.getHeight();
+            startY += 10;
             link.setX(0);
             link.setY(startY);
             startX = link.getWidth();
         }
         else {
             startX += link.getWidth();
+            startX += 4;
         }
     }
 
