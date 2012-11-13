@@ -15,9 +15,8 @@ articlepopmanager.show = function(in_canvas, x_coord, y_coord, title, img_url, s
   }
 
   /* initialize article popup contents */
-  $('#ap_image').hide();
   if(ap_image===""){
-    //$('#ap_image').hide();
+    $('#ap_image').hide();
   } else {
     $('#ap_image').load(function(){
       $('#ap_image').show('blind');
