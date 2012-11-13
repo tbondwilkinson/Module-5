@@ -43,10 +43,10 @@ font-weight:500;
 	display:none;
 	/*display: block;*/
 	position:absolute;
-	width:200px;
+	width:300px;
 	max-height:400px;
 	top:0;left:0;
-	background-color:orange;
+	background-color:lightgrey;
 	padding: 0; 
 	font-family: 'Dosis', sans-serif;
 	font-size: 18px;
