@@ -1,7 +1,7 @@
 var articlepopmanager = {};
-var articlepopmanager.x=0;
-var articlepopmanager.y=0;
-var articlepopmanager.in_canvas=false;
+articlepopmanager.x=0;
+articlepopmanager.y=0;
+articlepopmanager.in_canvas=false;
 
 /* x_coord and y_coord are relative to the canvas, if in_canvas is true */
 articlepopmanager.show = function(in_canvas, x_coord, y_coord, title, img_url, summary) {
@@ -39,8 +39,20 @@ articlepopmanager.hide = function() {
   $('#articlepop').hide('fade');
 }
 
-articlepopmanager.showwikiarticle = function() {
+articlepopmanager.showwikiarticle = function(article_title, in_canvas, x, y) {
+  //update internal state...
+  articlepopmanager.x=x;
+  articlepopmanager.y=y;
+  articlepopmanager.in_canvas=in_canvas;
+  $.get("wikiParse.php",
+        {title: article_title},
+        function(data){
+          var json = JSON.parse(data);
+          articlepopmanager.show(articlepopmanager.in_canvas,
+            articlepopmanager.x, articlepopmanager.y, json.title,
+            "http:"+json.img, json.summary);
 
+        });
 }
 
 //initialize on page buttons
