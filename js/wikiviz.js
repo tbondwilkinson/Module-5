@@ -160,7 +160,7 @@ function loadPageOrCategoryLinks(data) {
         link.on("mouseover", function (event) {
             alert("Mouseover!");
             if (!isCategoryView) {
-                this.timer=window.setTimeout("articlepopmanager.showwikiarticle(pageTitle, true," + startX + ", " + startY + ", " + link.getHeight() + ")", 2000);
+                this.timer=window.setTimeout("articlepopmanager.showwikiarticle(" + text + ", true, " + startX + ", " + startY + ", " + link.getHeight() + ")", 2000);
                 alert(this.timer);
             }
         });
