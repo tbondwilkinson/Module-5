@@ -56,8 +56,8 @@ function loadPageOrCategoryLinks(data) {
     });
 
 
-    var x_mouseover = (stage.getWidth()/2)-200;
-    var y_mouseover = 40;
+    var x_mouseover = (stage.getWidth()/2);
+    var y_mouseover = 60;
     label.on("mouseover", function (event) {
         if (!isCategory) {
             articlepopmanager.showwikiarticle(pageTitle, true, x_mouseover,
