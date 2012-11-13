@@ -60,10 +60,37 @@ function loadPageLinks(data) {
 
     // add the layer to the stage
 
-    linksLayer = new Kinetic.Layer();
+    var linksLayer = new Kinetic.Layer();
 
-    var startX = 0;
-    var startY = 60;
+    var startX, startY, padX, padY, sizeOfFont;
+
+    startX = 0;
+    startY = 60;
+    if (pageLinks.length < 25) {
+        padX = 100;
+        padY = 100;
+        sizeOfFont = 30;
+    }
+    else if (pageLinks.length < 50) {
+        padX = 50;
+        padY = 50;
+        sizeOfFont = 22;
+    }
+    else if (pageLinks.length < 100) {
+        padX = 25;
+        padY = 25;
+        sizeOfFont = 18;
+    }
+    else if (pageLinks.length < 200) {
+        padY = 12;
+        padX = 12;
+        sizeOfFont = 12;
+    }
+    else {
+        padY = 5;
+        padX = 5;
+        sizeOfFont = 10;
+    }
 
     for (var i = 0; i < pageLinks.length; i++) {
         var text = sanitize(pageLinks[i]);
@@ -74,6 +101,7 @@ function loadPageLinks(data) {
             x: startX,
             y: startY,
             stroke: "black",
+            fontSize: sizeOfFont,
             fontFamily: "monospace",
             strokeWidth: "2",
             fill: "#ddd",
@@ -90,14 +118,15 @@ function loadPageLinks(data) {
 
         if (startX + link.getWidth() > stage.getWidth()) {
             startY += link.getHeight();
-            startY += 15;
+            startY += padY;
             link.setX(0);
             link.setY(startY);
             startX = link.getWidth();
+            startX += padX;
         }
         else {
             startX += link.getWidth();
-            startX += 15;
+            startX += padX;
         }
     }
 
