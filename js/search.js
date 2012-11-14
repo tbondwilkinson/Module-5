@@ -38,7 +38,7 @@ $().ready(function(){
 
   //handle unfocus
   $('#search').blur(function(event){
-    $('#searchpop').hide('Blind');
+    $('#searchpop').delay(500).hide('Blind');
   });
 
   //handle search
