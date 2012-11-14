@@ -10,13 +10,13 @@ padding:0 0 15px 0;
 } 
 
 input {
-border: 1px solid black;
-background-color: #C4151C;
+border: 0px;
+background-color: #9D1116;
 color: black;
 font-family: 'Dosis', sans-serif;
 font-size: 18px;
 font-weight: 400;
-padding: 1px 2px 2px 2px;
+padding: 2px 3px 3px 3px;
 margin: 0px;
 }
   
@@ -48,6 +48,17 @@ position:absolute;bottom:0;
 font-family: 'Dosis', sans-serif; 
 font-size:26px; 
 font-weight:500; 
+}
+
+.searchlabel {
+float: right;
+background-color: #C4151C;
+padding: 2px 7px 3px 7px;
+text-decoration: none;
+color: black;
+font-family: 'Dosis', sans-serif;
+font-size: 18px;
+font-weight: 400;
 }
 
 /* article popup */
